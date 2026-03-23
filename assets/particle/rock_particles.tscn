@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbefnf5h3s60v"]
+
+[ext_resource type="Texture2D" uid="uid://d250fv5awa6sg" path="res://assets/particle/rock_particle.png" id="1_lxe1l"]
+[ext_resource type="Script" uid="uid://dvkrkvdxjc3ku" path="res://assets/particle/rock_particles.gd" id="2_0s6kn"]
+
+[sub_resource type="Curve" id="Curve_0s6kn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40163937, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.7717404, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_le4fu"]
+curve = SubResource("Curve_0s6kn")
+
+[sub_resource type="Curve" id="Curve_curvv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3jrqs"]
+curve = SubResource("Curve_curvv")
+
+[sub_resource type="Curve" id="Curve_lxe1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0s6kn"]
+curve = SubResource("Curve_lxe1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_curvv"]
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1, 0)
+spread = 50.0
+initial_velocity_max = 5.2799997
+gravity = Vector3(0, -10.765, 0)
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_0s6kn")
+alpha_curve = SubResource("CurveTexture_le4fu")
+emission_curve = SubResource("CurveTexture_3jrqs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jrqs"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_lxe1l")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = -16.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_aiajc"]
+material = SubResource("StandardMaterial3D_3jrqs")
+
+[node name="RockParticles" type="GPUParticles3D"]
+amount = 12
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_curvv")
+draw_pass_1 = SubResource("QuadMesh_aiajc")
+script = ExtResource("2_0s6kn")
