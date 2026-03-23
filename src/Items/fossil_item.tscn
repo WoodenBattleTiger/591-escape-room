@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dflbtfeqfigs0"]
+
+[ext_resource type="PackedScene" uid="uid://d3va2s1mg2efa" path="res://dungeon crawler/src/assets/small_fossil_rock.tscn" id="1_1uki7"]
+[ext_resource type="Script" uid="uid://b57dk4b820rgi" path="res://dungeon crawler/src/Items/fossil_item.gd" id="1_5lym3"]
+[ext_resource type="PackedScene" uid="uid://cbefnf5h3s60v" path="res://dungeon crawler/src/Interactables/rock_particles.tscn" id="2_p8frd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5lym3"]
+height = 0.38131714
+radius = 0.35009766
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["fossil"]]
+mass = 30.0
+script = ExtResource("1_5lym3")
+
+[node name="SmallFossilRock" parent="." instance=ExtResource("1_1uki7")]
+
+[node name="RockParticles" parent="." instance=ExtResource("2_p8frd")]
+queue_free_after_finish = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17777526, 0)
+shape = SubResource("CylinderShape3D_5lym3")
