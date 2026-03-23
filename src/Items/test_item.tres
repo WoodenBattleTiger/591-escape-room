@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bofy2av6ewffq"]
+
+[ext_resource type="Script" uid="uid://bkw3sm7xx35x5" path="res://dungeon crawler/src/Items/item.gd" id="1_3w2jl"]
+[ext_resource type="Texture2D" uid="uid://5nwqul7o72cu" path="res://dungeon crawler/src/assets/sun.png" id="2_3jrgr"]
+
+[resource]
+script = ExtResource("1_3w2jl")
+metadata/_custom_type_script = "uid://bkw3sm7xx35x5"
+id = "test_item"
+display_name = "Test Item"
+icon = ExtResource("2_3jrgr")
+weight = 5.0
+stack_size = 20
+description = "Debug item used to test inventory and item functionality. Not intended for final game content."

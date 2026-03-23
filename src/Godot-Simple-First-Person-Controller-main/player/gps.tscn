@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://co6j1aa6gd4hb"]
+
+[ext_resource type="Script" uid="uid://d1mtw4lubb0y8" path="res://dungeon crawler/src/Godot-Simple-First-Person-Controller-main/player/minimap_init.gd" id="1_fm0ga"]
+[ext_resource type="PackedScene" uid="uid://b4yber6kpfnqw" path="res://dungeon crawler/src/assets/models/gps.glb" id="2_uevy6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yrf83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pfer"]
+
+[node name="GPS" type="Node3D"]
+
+[node name="Minimap" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Minimap"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = -671.0
+offset_right = 895.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 0
+stretch = true
+script = ExtResource("1_fm0ga")
+
+[node name="SubViewport" type="SubViewport" parent="Minimap/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(711, 687)
+render_target_update_mode = 4
+
+[node name="MinimapCamera" type="Camera3D" parent="Minimap/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 500, 0)
+cull_mask = 1048573
+projection = 1
+size = 192.39987
+
+[node name="gpsMesh" parent="." instance=ExtResource("2_uevy6")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gpsMesh"]
+transform = Transform3D(0.44187045, -1.5428885e-08, -3.1572378e-09, -2.5257902e-08, 0.84888905, -8.419301e-09, -8.419301e-09, -1.5428885e-08, 0.41912565, 0.00538826, 0.071546435, -0.0017522722)
+mesh = SubResource("PlaneMesh_yrf83")
+surface_material_override/0 = SubResource("StandardMaterial3D_3pfer")
