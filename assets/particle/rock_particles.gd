@@ -34,6 +34,7 @@ func play_particles(particle_count: int = amount) -> void:
 	emitting = true
 
 	# Try to locate the audio manager by node name in the active scene tree.
+	# TODO re invent the audio manager (do not do that for sfx!!!)
 	var audio_manager = get_tree().root.get_node("Node3D/DungeonCrawlerAudioManager")
 	if audio_manager and audio_manager.has_method("play_sound_effect"):
 		# Randomly select one of the rock sounds to play for variety.

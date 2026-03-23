@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bclw71ttmyrww"]
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
 
-[ext_resource type="Texture2D" uid="uid://5nwqul7o72cu" path="res://dungeon crawler/src/assets/sun.png" id="1_kf7s1"]
+
 [ext_resource type="Script" uid="uid://bkw3sm7xx35x5" path="res://dungeon crawler/src/Items/item.gd" id="2_mxn3f"]
 
 [resource]
 script = ExtResource("2_mxn3f")
 id = "0"
 display_name = "Fossil"
-icon = ExtResource("1_kf7s1")
 weight = 5.0
 stack_size = 1
 description = "Fossil"

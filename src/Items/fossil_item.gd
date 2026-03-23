@@ -108,7 +108,7 @@ func _ready() -> void:
 	sleeping = false # ensure physics stays active so _integrate_forces runs
 	fossil_res.weight = weight
 	health = clamp(health, 0.0, MAX_HEALTH)
-	player = get_tree().root.get_node("Node3D/Player")
+	player = get_tree().root.get_node("Level/Player")
 	_cache_damage_materials()
 	_update_damage_visuals()
 
