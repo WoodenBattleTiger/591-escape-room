@@ -93,12 +93,19 @@ var has_played_test_track = false
 # Keyboard rotation rate for held items in pseudo-mouse-units per second.
 var hold_rotation_keyboard_rate := 1000.0
 
+# Toggles inversion for held-item rotation controls (mouse + keyboard).
+var invert_hold_rotation_controls := false
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_resolve_hud()
 	_update_stamina_bar()
 
 func _input(event: InputEvent) -> void:	
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_BACKSLASH:
+		invert_hold_rotation_controls = not invert_hold_rotation_controls
+		print("Invert hold rotation controls: ", invert_hold_rotation_controls)
+	
 	
 	if event is InputEventMouseMotion:
 		# In case the player is holding an item that can be rotated, 
@@ -107,7 +114,8 @@ func _input(event: InputEvent) -> void:
 		var rotating_held_item := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_holding != null
 		if rotating_held_item:
 			if is_holding.has_method("apply_hold_rotation_input"):
-				is_holding.apply_hold_rotation_input(event.relative)
+				var control_sign := -1.0 if invert_hold_rotation_controls else 1.0
+				is_holding.apply_hold_rotation_input(event.relative * control_sign)
 			return
 
 		rotation_degrees.y -= event.relative.x / 10
@@ -128,8 +136,9 @@ func _physics_process(delta: float) -> void:
 		# so let's just translate keyboard input into a pseudo mouse delta and feed it into that function,
 		# (along with a roll input since I didn't have that yet).
 		if keyboard_x != 0 or keyboard_y != 0 or keyboard_roll != 0:
-			var pseudo_mouse_delta := Vector2(keyboard_x, keyboard_y) * hold_rotation_keyboard_rate * delta
-			var roll_input := keyboard_roll * hold_rotation_keyboard_rate * delta
+			var control_sign := -1.0 if invert_hold_rotation_controls else 1.0
+			var pseudo_mouse_delta := Vector2(keyboard_x, keyboard_y) * hold_rotation_keyboard_rate * delta * control_sign
+			var roll_input := keyboard_roll * hold_rotation_keyboard_rate * delta * control_sign
 			is_holding.apply_hold_rotation_input(pseudo_mouse_delta, roll_input)
 	
 	#logic for dropping a held item
