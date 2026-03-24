@@ -138,7 +138,7 @@ func _physics_process(delta: float) -> void:
 		if keyboard_x != 0 or keyboard_y != 0 or keyboard_roll != 0:
 			var control_sign := -1.0 if invert_hold_rotation_controls else 1.0
 			var pseudo_mouse_delta := Vector2(keyboard_x, keyboard_y) * hold_rotation_keyboard_rate * delta * control_sign
-			var roll_input := keyboard_roll * hold_rotation_keyboard_rate * delta * control_sign
+			var roll_input := keyboard_roll * hold_rotation_keyboard_rate * delta
 			is_holding.apply_hold_rotation_input(pseudo_mouse_delta, roll_input)
 	
 	#logic for dropping a held item
