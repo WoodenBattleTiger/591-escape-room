@@ -49,6 +49,9 @@ var damage_particle_count := 20
 # Increase this when increasing `hold_rotation_spring` for stability.
 @export var hold_rotation_damping := 28.0
 
+# Sensitivity for mouse-driven hold rotation input, measured in radians per pixel.
+@export var hold_rotation_input_sensitivity := 0.001
+
 # Maximum allowed torque magnitude for rotational correction (safety cap).
 # Caps the rotational PD output so angular acceleration stays reasonable.
 # Example: big (e.g. 1000) -> permits very strong torque corrections; small (e.g. 20) -> weak correction and slow orienting.
@@ -63,6 +66,9 @@ var damage_particle_count := 20
 
 # Keeps track of the camera's yaw angle (theta) for positioning the fossil while held.
 var _hold_theta := 0.0
+
+# Mouse-driven orientation offset relative to the camera-yaw-aligned hold orientation.
+var _hold_rotation_offset := Quaternion.IDENTITY
 
 # This flag represents ownership of the current hold session by this script.
 # We set it true when interact() starts holding, and false immediately when a drop/force-release begins.
@@ -237,6 +243,14 @@ func _update_damage_visuals() -> void:
 
 func interact():
 	if player != null:
+		# In case the player had already been holding this fossil and 
+		# is interacting again (e.g. this is the second time they picked it up), 
+		# we want to reset hold rotation offsets so that the new hold session 
+		# doesn't start with them holding it at the previous position they dropped it from.
+		_reset_hold_rotation_offsets()
+		# Stop the fossil from colliding with the player while it's held
+		# so the player has an easier time rotating the fossil.
+		_set_player_collision_ignored(true)
 		# Keep the rigid body under world/terrain while held.
 		# RigidBody3D nodes behave most predictably when simulated in world space rather than inheriting a fast-moving parent transform.
 		# Parenting to the player can create visible jitter/choppiness because the body is influenced by both parent transform changes and physics.
@@ -320,6 +334,10 @@ func drop() -> bool:
 	var cast = player.get_node("HeadPosition/LandingAnimation/Camera3D/SeeCast")
 	var collider = cast.get_collider()
 	if collider == null: #this check isn't perfect but it's better than nothing
+		_reset_hold_rotation_offsets()
+		# Once the fossil is dropped, 
+		# we want it to be able to collide with the player again.
+		_set_player_collision_ignored(false)
 		# Any normal drop path ends the hold session.
 		_hold_session_active = false
 		reparent(get_tree().root.get_node("Node3D/dc_terrain"), true)
@@ -358,6 +376,10 @@ func _force_release_hold() -> void:
 		return
 
 	# Analogous to drop(), but we skip the collision check and we also don't need to reparent since we're already in world space.
+	_reset_hold_rotation_offsets()
+
+	# Just like in drop(), we want to make sure the fossil can collide with the player again once it's released.
+	_set_player_collision_ignored(false)
 	_hold_session_active = false
 	gravity_scale = 1.0
 	isInteractable = true
@@ -389,6 +411,12 @@ func _on_health_depleted() -> void:
 	
 	# Health depletion should terminate any active hold session immediately.
 	# This also prevents force-hold logic from running again during the same frame.
+	_reset_hold_rotation_offsets()
+
+	# This shouldn't matter too much, but for the sake of cleanup
+	# we restore the default collision behavior with the player 
+	# in case it was being held when it was destroyed,
+	_set_player_collision_ignored(false)
 	_hold_session_active = false
 	isInteractable = false
 	freeze = true
@@ -418,6 +446,79 @@ func _queue_free_after_depletion() -> void:
 		await get_tree().create_timer(cleanup_delay).timeout
 
 	queue_free()
+
+## Accepts mouse motion while the item is held and applies camera-relative rotation to the hold target.
+## [br]
+## **Param** `mouse_delta`: The change in mouse position since the last frame.
+## **Param** `roll_input`: Additional roll channel in the same units as mouse delta.
+func apply_hold_rotation_input(mouse_delta: Vector2, roll_input: float = 0.0) -> void:
+	if player == null:
+		return
+
+	# We want rotations to be relative to the camera/player, as opposed
+	# to being relative to the fossil. This way, the controls feel consistent regardless of the fossil's current orientation.
+	# If they are relative to the fossil, then consider what happens if the player rotates the fossil 90 degrees to the right.
+	# In such a case, moving the mouse up or down to pitch the fossil would now (from their point of view)
+	# be rolling it rather than pitching it, which can be disorienting.
+	var cam: Node3D = player.get_node_or_null(camera_path)
+	var view_basis: Basis = cam.global_transform.basis if cam else player.global_transform.basis
+	view_basis = view_basis.orthonormalized()
+
+	# Since the mouse input is in 2D (x and y), 
+	# we will map the x movement to yaw (rotation around the up axis) and the y movement to pitch 
+	# (rotation around the right axis).
+	var view_up: Vector3 = view_basis.y.normalized()
+	var view_right: Vector3 = view_basis.x.normalized()
+	var view_forward: Vector3 = -view_basis.z.normalized()
+
+	# We create three quaternions representing yaw, pitch, and roll rotations based on input,
+	# then combine them into a single camera-relative delta rotation.
+	var yaw_delta := -mouse_delta.x * hold_rotation_input_sensitivity
+	var pitch_delta := -mouse_delta.y * hold_rotation_input_sensitivity
+	var roll_delta := roll_input * hold_rotation_input_sensitivity
+	var delta_q := (
+		Quaternion(view_up, yaw_delta)
+		* Quaternion(view_right, pitch_delta)
+		* Quaternion(view_forward, roll_delta)
+	).normalized()
+
+	# To maintain the hold orientation relative to the camera's yaw, 
+	# we need to update the _hold_rotation_offset based on the new camera orientation.
+	var forward: Vector3 = -view_basis.z.normalized()
+	var current_theta := atan2(forward.x, forward.z)
+	var base_q := Basis(Vector3.UP, current_theta).get_rotation_quaternion()
+
+	# We apply the delta rotation to the current target orientation 
+	# which is the combination of the camera-yaw-aligned base orientation and 
+	# the existing hold rotation offset) to get an updated target orientation,
+	# and then we calculate the new hold rotation offset by comparing the updated target orientation to the base orientation.
+	var current_target_q := (base_q * _hold_rotation_offset).normalized()
+	var updated_target_q := (delta_q * current_target_q).normalized()
+	_hold_rotation_offset = (base_q.inverse() * updated_target_q).normalized()
+
+## Builds the target basis for a held fossil from camera yaw and camera-relative rotation offset.
+## [br]
+## **Returns**: Basis - The target orientation basis for the held fossil, combining camera yaw and mouse-driven rotation offset.
+func _get_hold_target_basis() -> Basis:
+	var base_q := Basis(Vector3.UP, _hold_theta).get_rotation_quaternion()
+	return Basis((base_q * _hold_rotation_offset).normalized())
+
+## Clears mouse-driven hold rotation offsets so a fresh pickup starts from camera-aligned orientation.
+func _reset_hold_rotation_offsets() -> void:
+	_hold_rotation_offset = Quaternion.IDENTITY
+
+## Toggles direct collision exceptions with the player while this fossil is held.
+## [br]
+## **Param** `ignored`: If true, the fossil will ignore collisions with the player; if false, it will collide normally.
+func _set_player_collision_ignored(ignored: bool) -> void:
+	if player == null:
+		return
+	if ignored:
+		# docs.godotengine.org/en/stable/classes/class_physicsbody3d.html#class-physicsbody3d-method-add-collision-exception-with
+		add_collision_exception_with(player)
+	else:
+		# https://docs.godotengine.org/en/stable/classes/class_physicsbody3d.html#class-physicsbody3d-method-remove-collision-exception-with
+		remove_collision_exception_with(player)
 
 # https://docs.godotengine.org/en/stable/classes/class_rigidbody3d.html#class-rigidbody3d-private-method-integrate-forces
 # This function is called during the physics step and allows us to read contact data to implement custom collision responses, 
@@ -558,7 +659,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		# is that the dot product of any two different columns should be zero).
 		# https://docs.godotengine.org/en/stable/classes/class_basis.html
 		var current_basis: Basis = state.transform.basis.orthonormalized()
-		var desired_basis: Basis = Basis(Vector3.UP, _hold_theta).orthonormalized()
+		var desired_basis: Basis = _get_hold_target_basis().orthonormalized()
 
 		# current_q is the fossil's current orientation as a quaternion, and desired_q is the target orientation based on the camera yaw.
 		# https://docs.godotengine.org/en/stable/classes/class_quaternion.html

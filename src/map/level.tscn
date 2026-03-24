@@ -39,5 +39,5 @@ mesh = SubResource("BoxMesh_va6l3")
 [node name="Player" parent="." instance=ExtResource("1_va6l3")]
 transform = Transform3D(0.18002126, 0, -0.9836627, 0, 1, 0, 0.9836627, 0, 0.18002126, -0.6117702, 0.7405691, 0.74991584)
 
-[node name="CarryableItem" parent="." instance=ExtResource("2_6hqnb")]
+[node name="CarryableItem" parent="." groups=["player", "player_camera"] instance=ExtResource("2_6hqnb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3102422, 1.2107139, 0)

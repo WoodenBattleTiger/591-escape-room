@@ -90,6 +90,9 @@ var weight_stamina_regen_mult_per_unit := 0.01 # Regen penalty keeps load meanin
 # Tracks whether the test track has already been played, to ensure it only plays once.
 var has_played_test_track = false
 
+# Keyboard rotation rate for held items in pseudo-mouse-units per second.
+var hold_rotation_keyboard_rate := 1000.0
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_resolve_hud()
@@ -98,11 +101,36 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:	
 	
 	if event is InputEventMouseMotion:
+		# In case the player is holding an item that can be rotated, 
+		# we want to rotate the held item instead of the player/the player's view when they move the mouse
+		# with the left mouse button held down. 
+		var rotating_held_item := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_holding != null
+		if rotating_held_item:
+			if is_holding.has_method("apply_hold_rotation_input"):
+				is_holding.apply_hold_rotation_input(event.relative)
+			return
+
 		rotation_degrees.y -= event.relative.x / 10
 		%Camera3D.rotation_degrees.x -= event.relative.y / 10
 		%Camera3D.rotation_degrees.x = clamp(%Camera3D.rotation_degrees.x, -90, 90)
 
 func _physics_process(delta: float) -> void:
+	
+	# For keyboard controls for held-item rotation:
+	if is_holding != null and is_holding.has_method("apply_hold_rotation_input"):
+		var keyboard_x := int(Input.is_key_pressed(KEY_RIGHT)) - int(Input.is_key_pressed(KEY_LEFT))
+		var keyboard_y := int(Input.is_key_pressed(KEY_DOWN)) - int(Input.is_key_pressed(KEY_UP))
+		# Pitch/yaw should be obvious, but for roll we can use the comma and period keys 
+		# since shift + , = < and shift + . = > making them honorary arrow keys.
+		var keyboard_roll := int(Input.is_key_pressed(KEY_PERIOD)) - int(Input.is_key_pressed(KEY_COMMA))
+
+		# We already have a function for applying rotation input given a mouse delta, 
+		# so let's just translate keyboard input into a pseudo mouse delta and feed it into that function,
+		# (along with a roll input since I didn't have that yet).
+		if keyboard_x != 0 or keyboard_y != 0 or keyboard_roll != 0:
+			var pseudo_mouse_delta := Vector2(keyboard_x, keyboard_y) * hold_rotation_keyboard_rate * delta
+			var roll_input := keyboard_roll * hold_rotation_keyboard_rate * delta
+			is_holding.apply_hold_rotation_input(pseudo_mouse_delta, roll_input)
 	
 	#logic for dropping a held item
 	if Input.is_action_just_pressed("interact") and is_holding != null:
