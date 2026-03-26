@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://yaiwwoegko4q"]
+[gd_scene load_steps=18 format=4 uid="uid://yaiwwoegko4q"]
 
 [ext_resource type="Script" uid="uid://xlurw26ps3ky" path="res://src/Items/item_snap_location.gd" id="1_xolwc"]
 [ext_resource type="Texture2D" uid="uid://bphu1s7827a8g" path="res://assets/skeletons/triceratops_Image_0.jpg" id="2_tmqx5"]
 [ext_resource type="Texture2D" uid="uid://f3ocvhv104o6" path="res://assets/skeletons/triceratops_Image_1.png" id="3_m2h55"]
 [ext_resource type="Texture2D" uid="uid://c1y74hl5ip0q2" path="res://assets/skeletons/triceratops_Image_2.jpg" id="4_6rgjo"]
+[ext_resource type="Texture2D" uid="uid://cisdd5tceh1e0" path="res://icon.svg" id="5_m2h55"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xolwc"]
 transparency = 1
@@ -62,6 +63,46 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y5sv2")
 
+[sub_resource type="Curve" id="Curve_m2h55"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6rgjo"]
+curve = SubResource("Curve_m2h55")
+
+[sub_resource type="Curve" id="Curve_crmwi"]
+_data = [Vector2(0, 1), 0.0, -3.5926945, 0, 0, Vector2(0.3380282, 0.27568734), -1.0018091, -1.0018091, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qaqfe"]
+curve = SubResource("Curve_crmwi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rgjo"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -204.4
+angle_max = 204.40001
+direction = Vector3(0, 1, 0)
+spread = 32.389
+initial_velocity_max = 7.7999997
+gravity = Vector3(0, -5, 0)
+scale_curve = SubResource("CurveTexture_qaqfe")
+alpha_curve = SubResource("CurveTexture_6rgjo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crmwi"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("5_m2h55")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_qaqfe"]
+material = SubResource("StandardMaterial3D_crmwi")
+size = Vector2(0.5, 0.5)
+
 [node name="ItemSnapLocation" type="Node3D"]
 script = ExtResource("1_xolwc")
 
@@ -73,3 +114,11 @@ mesh = SubResource("SphereMesh_xolwc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3818577, 0.62836695, -0.1961571)
 mesh = SubResource("ArrayMesh_tnr26")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6rgjo")
+draw_pass_1 = SubResource("QuadMesh_qaqfe")

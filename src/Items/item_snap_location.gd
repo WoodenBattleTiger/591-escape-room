@@ -70,5 +70,10 @@ func snap_object():
 	tween.set_ease(Tween.EASE_IN)
 	
 	# TODO play particles and a sound effect
+	tween.tween_callback(self.play_particles)
+	
+func play_particles():
+	$GPUParticles3D.one_shot = true
+	$GPUParticles3D.emitting = true
 	
 	
