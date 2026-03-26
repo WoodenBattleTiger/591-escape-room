@@ -47,7 +47,7 @@ var damage_particle_count := 20
 # Higher values kill residual angular velocity faster (damps spin); too high can feel unresponsive.
 # Example: big (e.g. 80) -> strongly damps tumble/oscillation; small (e.g. 2) -> allows prolonged tumbling.
 # Increase this when increasing `hold_rotation_spring` for stability.
-@export var hold_rotation_damping := 1200.0
+@export var hold_rotation_damping := 130.0
 
 # Sensitivity for mouse-driven hold rotation input, measured in radians per pixel.
 @export var hold_rotation_input_sensitivity := 0.001
