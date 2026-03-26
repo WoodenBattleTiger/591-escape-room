@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export var footstep_sound: Array[AudioStream]
 
@@ -75,7 +76,7 @@ var fossilsReturned = 0
 @onready var hud: CanvasLayer = get_node_or_null(hud_path)
 
 # This should be moved elsewhere, but for now to test the audio manager it is here.
-# Path to the audio manager node in the scene tree, which we will use to call methods on the audio manager to play sounds.
+## Path to the audio manager node in the scene tree, which we will use to call methods on the audio manager to play sounds.
 @export var audio_manager_path: NodePath
 @onready var audio_manager: Node = get_node_or_null(audio_manager_path)
 
@@ -374,21 +375,27 @@ func remove_held_item() -> bool:
 	if(is_holding == null):
 		print("not holding anything")
 		return false
+		
 	var held_item_name = is_holding.fossil_res.display_name
 	print("removing: ", held_item_name)
+	
 	var held_item_id = null
 	for stack in inventory.slots:
 		if (stack.item.display_name == held_item_name):
 			held_item_id = stack.item.id
 			break
+			
 	if (held_item_id == null):
 		print("couldn't find '", held_item_name, "' in the inventory")
 		return false
+		
 	if (!inventory.has_method("remove_item_from_inventory")):
 		print("inventory doesn't have remove item method")
+		
 	if (!inventory.remove_item_from_inventory(held_item_id, 1)):
 		print("couldn't remove item_id '", held_item_id, "' from inventory")
 		return false
+		
 	print("item {id: ", held_item_id, ", name: ", held_item_name, "} was successfully removed")
 	return true
 
