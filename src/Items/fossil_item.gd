@@ -12,10 +12,15 @@ var interactableText = "Press \"e\" to pick up"
 # How many particle effects to play when taking damage.
 var damage_particle_count := 20
 
-# Distances in cylindrical coordinates relative to the player
-# to use when positioning the fossil while it's being held. 
+# Radial distance in spherical coordinates for positioning while held.
+# The fossil is placed at this distance from an anchor point near the player,
+# in the same direction as the camera's current forward vector (yaw + pitch).
 @export var hold_distance := 1.0
-@export var hold_height := 1.0
+
+# Vertical anchor offset from the player's origin used as the spherical center
+# while holding. This keeps the orbit center near the torso/head area instead
+# of at the player's feet.
+@export var hold_height := 1.6
 
 # Strength of the positional spring pulling the fossil toward the target hold point.
 # larger values increase the restoring force for a given position error.
@@ -64,8 +69,10 @@ var damage_particle_count := 20
 # Set in relation to `max_hold_force` so the item isn't allowed to float very far because forces are too weak.
 @export var max_hold_distance_from_target := 2.0
 
-# Keeps track of the camera's yaw angle (theta) for positioning the fossil while held.
+# Keeps track of spherical angles derived from camera forward while held.
+# _hold_theta is azimuth (yaw in the XZ plane), _hold_phi is elevation (pitch).
 var _hold_theta := 0.0
+var _hold_phi := 0.0
 
 # Mouse-driven orientation offset relative to the camera-yaw-aligned hold orientation.
 var _hold_rotation_offset := Quaternion.IDENTITY
@@ -269,61 +276,61 @@ func interact():
 		collision_mask = 1 << (WORLD_LAYER_BIT - 1)
 		set_collision_mask_value(PLAYER_LAYER_BIT, false) # ignore player while held
 
-		# When picking up the fossil, we want to position it in front of the player at a certain hold distance and height, 
-		# and we want it to rotate with the player's camera yaw. We do not want it to always be in front of the player's
-		# camera, especially when they are looking up or down. So here's a simple solution: Let's have it always be
-		# a certain distance from the player in the horizontal direction and a certain height relative to the player's origin
-		# in the vertical direction. We will have its angle in the horizontal plane (theta) match the camera's yaw angle, 
-		# so it will be in front of the player regardless of which direction they are looking, but it won't move up and down with the camera pitch. 
-		# 
-		# For a problem like this where we have two distances (hold distance and hold height) and an angle (theta),
-		# cylindrical coordinates are a natural fit. The radius is the hold distance, the z (AKA h sometimes) is the hold height, 
-		# and the angle theta is derived from the camera's forward vector projected onto the horizontal plane.
-		# 
-		# More about that forward vector: The camera's forward vector is the negative z basis vector of its global transform. 
-		# We use the z basis vector because in Godot, the convention is that the forward direction of a camera or character is along the negative z axis.
-		# Well what do the other basis vectors represent? The x basis vector represents the right direction, and the y basis vector represents the up direction.
-		# Let's imagine a scenario where we have some camera at 0,0,0 in rectangular coordinates, oriented towards theta = 0, phi = 0 in spherical coordinates.
-		# This translates to a global transform basis where the negative z axis points forward, the x axis points right, and the y axis points up.
-		# If the camera then rotates to look up, let's say directly up so our phi = 90 degrees, the z basis vector would now point straight up, 
-		# the x basis vector would still point to the right, and the y basis vector would now point backwards.
-		# 
-		# So since the camera's forward vector is the negative z basis vector, if we take the atan2 of the x and z components of that forward vector, 
-		# we can get the camera's yaw angle (theta) in the horizontal plane.
+		# When picking up the fossil, we position it using a spherical-coordinate style target so it follows both
+		# camera yaw and camera pitch. In other words, looking up/down moves the hold target up/down as well.
+		#
+		# We treat `hold_distance` as the spherical radius r, and we use the camera forward direction to recover
+		# spherical angles:
+		#   theta (azimuth)   = atan2(forward.x, forward.z)
+		#   phi   (elevation) = asin(forward.y)
+		#
+		# The equivalent Cartesian offset for that direction and radius is:
+		#   x = r * sin(theta) * cos(phi)
+		#   y = r * sin(phi)
+		#   z = r * cos(theta) * cos(phi)
+		#
+		# We still keep `hold_height` as a vertical anchor offset from the player origin, so the spherical center is
+		# near the player's torso/head rather than near their feet.
 		
 		var cam: Node3D = player.get_node_or_null(camera_path)
 		if cam:
 			# cam_basis is a 3x3 matrix where the columns represent the camera's local x, y, and z axes in global space.
-			# As stated before, we want the camera's forward vector, which is the negative z basis vector. 
+			# As stated before, we want the camera's forward vector, which is the negative z basis vector.
 			var cam_basis: Basis = cam.global_transform.basis
 
 			# We normalize the forward vector to ensure it has a length of 1.
 			# A basis vector need not be a normal vector. It is merely guaranteed to be a part of a minimal spanning set of vectors of the space.
 			var forward: Vector3 = -cam_basis.z.normalized()
 
-			# atan2 returns the angle in radians between the positive z axis and the point given by the x and z components of the forward vector,
-			# which is effectively the camera's yaw angle in the horizontal plane. 
+			# atan2 gives azimuth theta from XZ, and asin gives elevation phi from Y.
 			_hold_theta = atan2(forward.x, forward.z)
+			_hold_phi = asin(forward.y)
 
 			# We now get the player's global position for the sake of calculating the fossil's position relative to the player.
 			var player_origin: Vector3 = player.global_transform.origin
+			var anchor := player_origin + Vector3(0.0, hold_height, 0.0)
 
-			# The fossil's global position is then the player's global position plus an offset. 
-			# The vertical component is easy, just add the hold height to the player's y coordinate. 
-			# The horizontal component is also easy. 
-			# Think of it like a circle. We want the fossil to be on the circumference of a circle around the player with radius equal to the hold distance.
-			# The angle around that circle is the camera's yaw angle (theta), so we can use basic trigonometry to calculate the x and z offsets as 
-			# sin(theta) * hold_distance and cos(theta) * hold_distance respectively. sin() for the x component and cos() for the z component (little weird since we usually think of cos for x and sin for y.)
-			var offset := Vector3(sin(_hold_theta) * hold_distance, hold_height, cos(_hold_theta) * hold_distance)
+			# Now we can calculate the Cartesian offset from the spherical coordinates as described above.
+			# We calculate cos(phi) once since it's used in both x and z calculations. 
+			var cos_phi := cos(_hold_phi)
+
+			# Our offset is some cartesian coordinate that is `hold_distance` away from the anchor point in the 
+			# direction defined by the camera's forward vector.
+			# We just need to translate from spherical to Cartesian coordinates using the formulas above, 
+			# and then we can add that offset to the anchor point to get the final hold position.
+			var offset := Vector3(
+				sin(_hold_theta) * cos_phi * hold_distance,
+				sin(_hold_phi) * hold_distance,
+				cos(_hold_theta) * cos_phi * hold_distance
+			)
 
 			# Now we just add the offset.
-			global_position = player_origin + offset
+			global_position = anchor + offset
 		else:
 
-			# In case the camera is not found for some reason, 
-			# we will fall back to a simple behavior of just parenting the fossil to the player and setting its position to the player's position,
-			# which will at least ensure the fossil moves with the player even if it won't be held in front of them nicely.
-			global_position = player.global_position
+			# In case the camera is not found for some reason,
+			# we will fall back to placing the fossil near the player's anchor point.
+			global_position = player.global_position + Vector3(0.0, hold_height, 0.0)
 		player.is_holding = self
 		
 		var inv = player.get_node_or_null("Inventory")
@@ -539,16 +546,24 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		#
 		# This gives a much more "in-hand" feel while still letting world collisions push the fossil away naturally.
 
-		# First we calculate the target hold position based on the player's current position and camera orientation, using the same logic as in interact().
+		# First we calculate the target hold position based on the player's current position and camera orientation,
+		# using the same spherical-coordinate logic as in interact().
 		var cam: Node3D = player.get_node_or_null(camera_path)
 		var cam_basis: Basis = cam.global_transform.basis if cam else player.global_transform.basis
 		var forward: Vector3 = -cam_basis.z.normalized()
 		_hold_theta = atan2(forward.x, forward.z)
+		_hold_phi = asin(clamp(forward.y, -1.0, 1.0))
 		var origin: Vector3 = player.global_transform.origin
-		var offset := Vector3(sin(_hold_theta) * hold_distance, hold_height, cos(_hold_theta) * hold_distance)
-		var target: Vector3 = origin + offset
+		var anchor := origin + Vector3(0.0, hold_height, 0.0)
+		var cos_phi := cos(_hold_phi)
+		var offset := Vector3(
+			sin(_hold_theta) * cos_phi * hold_distance,
+			sin(_hold_phi) * hold_distance,
+			cos(_hold_theta) * cos_phi * hold_distance
+		)
+		var target: Vector3 = anchor + offset
 
-		# See interact() comments for explanation of the cylindrical hold positioning logic.
+		# See interact() comments for explanation of the hold positioning logic.
 
 		# Now we have the target hold position, we can calculate the spring force to apply to the fossil to pull it toward that target.
 
