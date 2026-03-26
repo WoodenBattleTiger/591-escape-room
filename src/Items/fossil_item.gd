@@ -12,61 +12,61 @@ var interactableText = "Press \"e\" to pick up"
 # How many particle effects to play when taking damage.
 var damage_particle_count := 20
 
-# Radial distance in spherical coordinates for positioning while held.
-# The fossil is placed at this distance from an anchor point near the player,
-# in the same direction as the camera's current forward vector (yaw + pitch).
+## Radial distance in spherical coordinates for positioning while held.
+## The fossil is placed at this distance from an anchor point near the player,
+## in the same direction as the camera's current forward vector (yaw + pitch).
 @export var hold_distance := 1.0
 
-# Vertical anchor offset from the player's origin used as the spherical center
-# while holding. This keeps the orbit center near the torso/head area instead
-# of at the player's feet.
+## Vertical anchor offset from the player's origin used as the spherical center
+## while holding. This keeps the orbit center near the torso/head area instead
+## of at the player's feet.
 @export var hold_height := 1.6
 
-# Strength of the positional spring pulling the fossil toward the target hold point.
-# larger values increase the restoring force for a given position error.
-# Example: big (e.g. 2000) -> item snaps to target very quickly but may produce strong collision impulses or jitter;
-#          small (e.g. 100) -> item is very floaty and slow to return.
-# `hold_spring_strength` should be balanced with `hold_damping` and `max_hold_force`.
+## Strength of the positional spring pulling the fossil toward the target hold point.
+## larger values increase the restoring force for a given position error.
+## Example: big (e.g. 2000) -> item snaps to target very quickly but may produce strong collision impulses or jitter;
+##          small (e.g. 100) -> item is very floaty and slow to return.
+## `hold_spring_strength` should be balanced with `hold_damping` and `max_hold_force`.
 @export var hold_spring_strength := 10000.0
 
-# Linear damping applied to the velocity error (viscous term that resists motion).
-# Higher damping reduces oscillation/overshoot from the positional spring; too-high values feel sluggish.
-# Example: big (e.g. 200) -> critically or over-damped (no bounce, may feel heavy); small (e.g. 10) -> under-damped, oscillatory float.
-# When you raise `hold_spring_strength`, increase `hold_damping` to maintain stability.
+## Linear damping applied to the velocity error (viscous term that resists motion).
+## Higher damping reduces oscillation/overshoot from the positional spring; too-high values feel sluggish.
+## Example: big (e.g. 200) -> critically or over-damped (no bounce, may feel heavy); small (e.g. 10) -> under-damped, oscillatory float.
+## When you raise `hold_spring_strength`, increase `hold_damping` to maintain stability.
 @export var hold_damping := 1000.0
 
-# Maximum magnitude of the positional force applied (force cap for safety/stability).
-# Prevents the spring+damping force from becoming unbounded and doing weird things like maybe launching the fossil if some tremendous position error occurs even if for a single frame.
-# Example: big (e.g. 8000) -> allows very aggressive corrections (may shove through light obstacles); small (e.g. 200) -> weak corrections, item may not snap back.
-# Set `max_hold_force` >= (`hold_spring_strength` * typical_target_distance) to allow intended corrections.
+## Maximum magnitude of the positional force applied (force cap for safety/stability).
+## Prevents the spring+damping force from becoming unbounded and doing weird things like maybe launching the fossil if some tremendous position error occurs even if for a single frame.
+## Example: big (e.g. 8000) -> allows very aggressive corrections (may shove through light obstacles); small (e.g. 200) -> weak corrections, item may not snap back.
+## Set `max_hold_force` >= (`hold_spring_strength` * typical_target_distance) to allow intended corrections.
 @export var max_hold_force := 4000.0
 
-# Rotational spring strength for correcting orientation (applied as torque via PD controller).
-# larger values make orientation correct faster across all axes (pitch/yaw/roll).
-# Example: big (e.g. 600) -> quick orientation recovery but risks oscillation without adequate damping;
-#          small (e.g. 10) -> very slow or no recovery; item may stay tilted.
-# Tune with `hold_rotation_damping` and `max_hold_torque` (higher spring needs higher damping and torque cap).
+## Rotational spring strength for correcting orientation (applied as torque via PD controller).
+## larger values make orientation correct faster across all axes (pitch/yaw/roll).
+## Example: big (e.g. 600) -> quick orientation recovery but risks oscillation without adequate damping;
+##          small (e.g. 10) -> very slow or no recovery; item may stay tilted.
+## Tune with `hold_rotation_damping` and `max_hold_torque` (higher spring needs higher damping and torque cap).
 @export var hold_rotation_spring := 1200.0
 
-# Rotational damping applied to angular velocity to reduce spin and overshoot in rotation.
-# Higher values kill residual angular velocity faster (damps spin); too high can feel unresponsive.
-# Example: big (e.g. 80) -> strongly damps tumble/oscillation; small (e.g. 2) -> allows prolonged tumbling.
-# Increase this when increasing `hold_rotation_spring` for stability.
+## Rotational damping applied to angular velocity to reduce spin and overshoot in rotation.
+## Higher values kill residual angular velocity faster (damps spin); too high can feel unresponsive.
+## Example: big (e.g. 80) -> strongly damps tumble/oscillation; small (e.g. 2) -> allows prolonged tumbling.
+## Increase this when increasing `hold_rotation_spring` for stability.
 @export var hold_rotation_damping := 130.0
 
-# Sensitivity for mouse-driven hold rotation input, measured in radians per pixel.
+## Sensitivity for mouse-driven hold rotation input, measured in radians per pixel.
 @export var hold_rotation_input_sensitivity := 0.001
 
-# Maximum allowed torque magnitude for rotational correction (safety cap).
-# Caps the rotational PD output so angular acceleration stays reasonable.
-# Example: big (e.g. 1000) -> permits very strong torque corrections; small (e.g. 20) -> weak correction and slow orienting.
-# Choose this so typical `angle_error * hold_rotation_spring` can be delivered without saturating constantly.
+## Maximum allowed torque magnitude for rotational correction (safety cap).
+## Caps the rotational PD output so angular acceleration stays reasonable.
+## Example: big (e.g. 1000) -> permits very strong torque corrections; small (e.g. 20) -> weak correction and slow orienting.
+## Choose this so typical `angle_error * hold_rotation_spring` can be delivered without saturating constantly.
 @export var max_hold_torque := 960.0
 
-# Euclidean distance threshold: if the fossil center is farther than this from the target hold point, force-release it.
-# Smaller values cause earlier release when item is pulled away by collisions; larger values are more lenient.
-# Example: big (e.g. 3.5) -> tolerates larger displacements before dropping; small (e.g. 1.0) -> strict, drops quickly when pulled.
-# Set in relation to `max_hold_force` so the item isn't allowed to float very far because forces are too weak.
+## Euclidean distance threshold: if the fossil center is farther than this from the target hold point, force-release it.
+## Smaller values cause earlier release when item is pulled away by collisions; larger values are more lenient.
+## Example: big (e.g. 3.5) -> tolerates larger displacements before dropping; small (e.g. 1.0) -> strict, drops quickly when pulled.
+## Set in relation to `max_hold_force` so the item isn't allowed to float very far because forces are too weak.
 @export var max_hold_distance_from_target := 2.0
 
 # Keeps track of spherical angles derived from camera forward while held.
