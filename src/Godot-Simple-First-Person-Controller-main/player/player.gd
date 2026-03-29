@@ -95,7 +95,7 @@ var has_played_test_track = false
 var hold_rotation_keyboard_rate := 1000.0
 
 # Toggles inversion for held-item rotation controls (mouse + keyboard).
-var invert_hold_rotation_controls := false
+var invert_hold_rotation_controls := true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
