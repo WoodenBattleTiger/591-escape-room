@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5p4gplbnj70d"]
+[gd_scene load_steps=10 format=3 uid="uid://c5p4gplbnj70d"]
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_va6l3"]
 [ext_resource type="PackedScene" uid="uid://dflbtfeqfigs0" path="res://src/Items/fossil_item.tscn" id="2_6hqnb"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_8mpp1"]
+[ext_resource type="PackedScene" uid="uid://c88i57jbpr1cu" path="res://src/map/3d_printer.tscn" id="4_rcnp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_va6l3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,3 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3102422, 1.2107139, 0)
 
 [node name="ItemSnapLocation" parent="." instance=ExtResource("3_8mpp1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.501252, 1.1040316, -4.118461)
+
+[node name="3dPrinter" parent="." instance=ExtResource("4_rcnp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0790596, 0.15217134, -3.906361)
