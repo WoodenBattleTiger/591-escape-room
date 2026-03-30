@@ -249,6 +249,11 @@ func _update_damage_visuals() -> void:
 		)
 
 func interact():
+	push_warning("interact() called on base FossilItem — subclass should override this.")
+	pickup()
+			
+
+func pickup():
 	if player != null:
 		# In case the player had already been holding this fossil and 
 		# is interacting again (e.g. this is the second time they picked it up), 
