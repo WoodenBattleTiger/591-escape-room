@@ -1,3 +1,4 @@
+class_name Printer3D
 extends Node3D
 
 var isInteractable = false

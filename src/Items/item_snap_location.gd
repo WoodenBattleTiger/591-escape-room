@@ -75,17 +75,9 @@ func snap_object():
 	# stop physics for the object
 	object.freeze = true
 	object.lock_rotation = true
-	
-	# switch the fossil state
-	match object.currFossilState:
-		FossilItem.FossilState.JACKETED:
-			object.currFossilState = FossilItem.FossilState.ONTABLE
-			object.isInteractable = false
-			get_parent().on_fossil_snapped(object)
-		FossilItem.FossilState.UNJACKETED:
-			object.currFossilState = FossilItem.FossilState.INPRINTER
-			object.interactableText = "Press \"e\" to retrieve 3d printed fossil"
-			get_parent().isInteractable = true
+
+	# switch the fossil state on snapping
+	object.update_state_on_snap()
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(object, "global_transform", global_transform, 0.1)
@@ -94,7 +86,8 @@ func snap_object():
 	# TODO play particles and a sound effect
 	tween.tween_callback(self.play_particles)
 	tween.tween_callback(func(): hide())
-	
+
+
 func play_particles():
 	$GPUParticles3D.one_shot = true
 	$GPUParticles3D.emitting = true

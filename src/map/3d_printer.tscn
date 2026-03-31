@@ -355,7 +355,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6e4bx")
 
-[node name="3dPrinter" type="StaticBody3D"]
+[node name="3dPrinter" type="StaticBody3D" groups=["3DPrinter"]]
 script = ExtResource("1_80j45")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

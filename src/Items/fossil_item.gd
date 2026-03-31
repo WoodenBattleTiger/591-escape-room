@@ -253,6 +253,21 @@ func _update_damage_visuals() -> void:
 			base_color.a
 		)
 
+
+func update_state_on_snap():
+	match currFossilState:
+		FossilItem.FossilState.JACKETED:
+			currFossilState = FossilItem.FossilState.ONTABLE
+			interactableText = "Press \"e\" to unjacket the fossil"
+			isInteractable = true
+		FossilItem.FossilState.UNJACKETED:
+			currFossilState = FossilItem.FossilState.INPRINTER
+			interactableText = "Press \"e\" to retrieve 3d printed fossil"
+			
+			var printer : Printer3D = get_tree().get_first_node_in_group("3DPrinter")
+			printer.isInteractable = true
+
+
 func interact():
 	#push_warning("interact() called on base FossilItem — subclass should override this.")
 	match currFossilState:
@@ -297,6 +312,7 @@ func pickup():
 		rotation = Vector3(0.0, 0.0, 0.0)
 		isInteractable = false
 		freeze = false
+		lock_rotation = false
 		sleeping = false
 		# The player has started a new hold session.
 		_hold_session_active = true
