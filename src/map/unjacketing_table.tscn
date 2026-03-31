@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://e0sauuoas2s6"]
+
+[ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="1_2hgly"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj8lq"]
+albedo_color = Color(0.45882353, 0.30980393, 0.21960784, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbsfj"]
+material = SubResource("StandardMaterial3D_gj8lq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x300s"]
+
+[node name="JacketingTable" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 0.9, 0, 0, 0, 2, 0, 0.45, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_qbsfj")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_x300s")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.0121832, 0)
+text = "THIS IS A TABLE!"
+
+[node name="ItemSnapLocation" parent="." instance=ExtResource("1_2hgly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7348506, 0)
+rotation_closeness_threshold = 500

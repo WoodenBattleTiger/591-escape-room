@@ -15,11 +15,19 @@ var player : Player
 @export var position_closeness_threshold = 0.25
 
 ## number of degrees that the rotation should be within for the object to snap into place
-@export var rotation_closeness_threshold = 15
+@export var rotation_closeness_threshold = 100
+
+#the fossil type that the snap location is allowed to take (FossilItem.FOssilState.JACKETED, etc.)
+@export var fossilTypeAllowed: FossilItem.FossilState = FossilItem.FossilState.JACKETED
+
+#tracks the fossil being held
+var object :RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
+	#position_closeness_threshold = 0.25
+	#rotation_closeness_threshold = 100.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,6 +44,10 @@ func _physics_process(_delta: float) -> void:
 		# TODO remove and turn back into functionsvar dist = global_position.distance_to(object.global_position)
 		var object = player.is_holding
 		
+		#null check because of occassional race condition
+		if not is_instance_valid(object):
+			return
+			
 		# distance check
 		var dist = global_position.distance_to(object.global_position)
 		var l_check = dist < position_closeness_threshold
@@ -48,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 		
 		#print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
 		
-		if l_check and r_check:
+		if l_check and r_check and object.currFossilState == fossilTypeAllowed:
 			snap_object()
  
 
@@ -56,7 +68,7 @@ func snap_object():
 	print("snapping the object")
 	
 	# remove it from the player
-	var object :RigidBody3D = player.is_holding
+	object = player.is_holding
 	#player.remove_held_item() # TODO the inventory is very broken, figure out if we are scrapping it or not
 	player.is_holding = null
 	
@@ -64,6 +76,16 @@ func snap_object():
 	object.freeze = true
 	object.lock_rotation = true
 	
+	# switch the fossil state
+	match object.currFossilState:
+		FossilItem.FossilState.JACKETED:
+			object.currFossilState = FossilItem.FossilState.ONTABLE
+			object.interactableText = "Press \"e\" to unjacket the fossil"
+			object.isInteractable = true
+		FossilItem.FossilState.UNJACKETED:
+			object.currFossilState = FossilItem.FossilState.INPRINTER
+			object.interactableText = "Press \"e\" to retrieve 3d printed fossil"
+			get_parent().isInteractable = true
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(object, "global_transform", global_transform, 0.1)
