@@ -80,8 +80,8 @@ func snap_object():
 	match object.currFossilState:
 		FossilItem.FossilState.JACKETED:
 			object.currFossilState = FossilItem.FossilState.ONTABLE
-			object.interactableText = "Press \"e\" to unjacket the fossil"
-			object.isInteractable = true
+			object.isInteractable = false
+			get_parent().on_fossil_snapped(object)
 		FossilItem.FossilState.UNJACKETED:
 			object.currFossilState = FossilItem.FossilState.INPRINTER
 			object.interactableText = "Press \"e\" to retrieve 3d printed fossil"
@@ -93,6 +93,7 @@ func snap_object():
 	
 	# TODO play particles and a sound effect
 	tween.tween_callback(self.play_particles)
+	tween.tween_callback(func(): hide())
 	
 func play_particles():
 	$GPUParticles3D.one_shot = true
