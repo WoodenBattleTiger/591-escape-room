@@ -1,6 +1,11 @@
+#just decaring this so that I can use the fossil state enum in other objects
+class_name FossilItem
 extends RigidBody3D
 
 const MAX_HEALTH := 100.0
+
+enum FossilState { JACKETED, ONTABLE, UNJACKETED, INPRINTER, PRINTED}
+var currFossilState = FossilState.JACKETED
 
 var isInteractable = true
 var interactableText = "Press \"e\" to pick up"
@@ -249,9 +254,29 @@ func _update_damage_visuals() -> void:
 		)
 
 func interact():
-	push_warning("interact() called on base FossilItem — subclass should override this.")
-	pickup()
-			
+	#push_warning("interact() called on base FossilItem — subclass should override this.")
+	match currFossilState:
+		# The starting state that the player finds the fossil in
+		FossilState.JACKETED:
+			pickup()
+		
+		# The state of the fossil after the player places it on the table to be dejacketed
+		FossilState.ONTABLE:
+			#TODO The interaction for dejacketing the fossil
+			print("u dejacketed the fossil.")
+			interactableText = "Press \"e\" to pick up unjacketed fossil"
+			currFossilState = FossilState.UNJACKETED
+		
+		# Interacting with the fossil after player has unjacketed the fossil 
+		FossilState.UNJACKETED:
+			pickup()
+		
+		# Interacting with the fossil after it has gone through 3d-printer
+		FossilState.PRINTED:
+			pickup()
+		_:
+			#Player shouldn't be able to interact with the fossil while it is in the 3d printer (This is because they should be interacting with the 3d printer)
+			print("HOW ARE U INTERACTING IN THIS STATE?????")
 
 func pickup():
 	if player != null:
@@ -266,7 +291,8 @@ func pickup():
 		# Keep the rigid body under world/terrain while held.
 		# RigidBody3D nodes behave most predictably when simulated in world space rather than inheriting a fast-moving parent transform.
 		# Parenting to the player can create visible jitter/choppiness because the body is influenced by both parent transform changes and physics.
-		reparent(get_tree().root.get_node("Node3D/dc_terrain"), true)
+		var terrain = get_tree().root.get_node_or_null("Node3D/dc_terrain")
+		reparent(terrain if terrain != null else get_tree().root, true)
 		gravity_scale = 0.0
 		rotation = Vector3(0.0, 0.0, 0.0)
 		isInteractable = false

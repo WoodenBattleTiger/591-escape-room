@@ -1,6 +1,6 @@
 extends Node3D
 
-var isInteractable = true
+var isInteractable = false
 var interactableText = "Press \"e\" to use 3D printer"
 
 
@@ -11,3 +11,10 @@ func _ready() -> void:
 
 func interact():
 	print("do something here")
+	
+	#printer can't be interacted with anymore
+	isInteractable = false
+	
+	#
+	%ItemSnapLocation.object.isInteractable = true
+	%ItemSnapLocation.object.currFossilState = FossilItem.FossilState.PRINTED

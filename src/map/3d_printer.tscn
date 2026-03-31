@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c88i57jbpr1cu"]
+[gd_scene load_steps=5 format=3 uid="uid://c88i57jbpr1cu"]
 
 [ext_resource type="Script" uid="uid://ca4ja6ro14jv7" path="res://src/map/3d_printer.gd" id="1_80j45"]
+[ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="2_jb2qv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0hiwr"]
 
@@ -17,3 +18,13 @@ mesh = SubResource("BoxMesh_0hiwr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49158084, 0)
 shape = SubResource("ConcavePolygonShape3D_80j45")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9727106, 0)
+text = "THIS IS A 3D PRINTER!"
+
+[node name="ItemSnapLocation" parent="." instance=ExtResource("2_jb2qv")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4999614, 0)
+rotation_closeness_threshold = 500
+fossilTypeAllowed = 2
