@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://sjpuofixu0uu"]
+
+[ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_xl7uu"]
+[ext_resource type="PackedScene" uid="uid://dflbtfeqfigs0" path="res://src/Items/fossil_item.tscn" id="2_ck3b5"]
+[ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_efamr"]
+[ext_resource type="PackedScene" uid="uid://c88i57jbpr1cu" path="res://src/map/3d_printer.tscn" id="4_0r2xv"]
+[ext_resource type="PackedScene" uid="uid://e0sauuoas2s6" path="res://src/map/unjacketing_table.tscn" id="5_v7hv7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4vl5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_va6l3"]
+
+[node name="Level" type="Node3D"]
+
+[node name="cube" type="Node3D" parent="."]
+transform = Transform3D(18, 0, 0, 0, 0.496, 0, 0, 0, 18, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999999, 0.0022568707, 0.02857709, 0.0010320542)
+shape = SubResource("BoxShape3D_g4vl5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cube/StaticBody3D"]
+mesh = SubResource("BoxMesh_va6l3")
+
+[node name="Player" parent="." instance=ExtResource("1_xl7uu")]
+transform = Transform3D(0.18002126, 0, -0.9836627, 0, 1, 0, 0.9836627, 0, 0.18002126, -0.6117702, 0.7405691, 0.74991584)
+
+[node name="CarryableItem" parent="." groups=["player", "player_camera"] instance=ExtResource("2_ck3b5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3102422, 1.2107139, 0)
+
+[node name="ItemSnapLocation" parent="." instance=ExtResource("3_efamr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.501252, 1.1040316, -4.118461)
+fossilTypeAllowed = 4
+
+[node name="3dPrinter" parent="." instance=ExtResource("4_0r2xv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0790596, 0.15217134, -3.906361)
+
+[node name="JacketingTable" parent="." instance=ExtResource("5_v7hv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2348163, 0.14375219, 3.5314255)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 9)
+size = Vector3(18, 6, 0.25)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9, 3, 0)
+size = Vector3(18, 6, 0.25)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 3, 0)
+size = Vector3(18, 6, 0.25)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -9)
+size = Vector3(18, 6, 0.25)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+omni_range = 15.487
+omni_attenuation = 0.029
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+size = Vector3(18, 0.25, 18)
