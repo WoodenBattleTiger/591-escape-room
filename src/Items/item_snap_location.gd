@@ -20,8 +20,11 @@ var player : Player
 #the fossil type that the snap location is allowed to take (FossilItem.FOssilState.JACKETED, etc.)
 @export var fossilTypeAllowed: FossilItem.FossilState = FossilItem.FossilState.JACKETED
 
+## name of the object to snap to this location. if empty, will accept any object
+@export var snapped_object_name : String = ""
+
 #tracks the fossil being held
-var object :RigidBody3D
+var object : FossilItem
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +45,7 @@ func _physics_process(_delta: float) -> void:
 		#var rc = rotation_check(player.is_holding)
 		
 		# TODO remove and turn back into functionsvar dist = global_position.distance_to(object.global_position)
-		var object = player.is_holding
+		object = player.is_holding
 		
 		#null check because of occassional race condition
 		if not is_instance_valid(object):
@@ -61,7 +64,9 @@ func _physics_process(_delta: float) -> void:
 		#print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
 		
 		if l_check and r_check and object.currFossilState == fossilTypeAllowed:
-			snap_object()
+			 # TODO TEST THIS later
+			if snapped_object_name == "" or snapped_object_name == object.fossilAssigned.name:
+				snap_object()
  
 
 func snap_object():

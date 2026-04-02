@@ -106,7 +106,7 @@ shadow_mesh = SubResource("ArrayMesh_6mndk")
 [node name="Tri_Left_Flank" type="Node3D"]
 
 [node name="tri_left_flank" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.3, 0.90000004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.38578373, 1.0740743)
 mesh = SubResource("ArrayMesh_185lw")
 skeleton = NodePath("")
 

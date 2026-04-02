@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bos3euuw1dkoo"]
+
+[ext_resource type="PackedScene" uid="uid://gp5d4sepioes" path="res://src/Items/Fossils/triceratops/_tri_main_body.tscn" id="1_g1ac0"]
+
+[node name="TriceratopsAssembly" type="Node3D"]
+
+[node name="_main_body" parent="." instance=ExtResource("1_g1ac0")]
