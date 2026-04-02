@@ -81,5 +81,6 @@ mesh = SubResource("BoxMesh_hslg3")
 
 [node name="left_forearm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3818577, 0.62836695, -0.1961571)
+visible = false
 mesh = SubResource("ArrayMesh_tnr26")
 skeleton = NodePath("")

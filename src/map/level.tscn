@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5p4gplbnj70d"]
+[gd_scene load_steps=12 format=3 uid="uid://c5p4gplbnj70d"]
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_va6l3"]
 [ext_resource type="PackedScene" uid="uid://dflbtfeqfigs0" path="res://src/Items/fossil_item.tscn" id="2_6hqnb"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_8mpp1"]
 [ext_resource type="PackedScene" uid="uid://c88i57jbpr1cu" path="res://src/map/3d_printer.tscn" id="4_rcnp0"]
 [ext_resource type="PackedScene" uid="uid://e0sauuoas2s6" path="res://src/map/unjacketing_table.tscn" id="5_pwpgi"]
+[ext_resource type="PackedScene" uid="uid://b6bosfun5bs3j" path="res://src/Items/Fossils/fossil_spawn_point.tscn" id="6_sydkg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_va6l3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -54,3 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0790596, 0.15217134, -3.90
 
 [node name="JacketingTable" parent="." instance=ExtResource("5_pwpgi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2348163, 0.14375219, 3.5314255)
+
+[node name="FossilSpawnPoint" parent="." instance=ExtResource("6_sydkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5094976, 0.8862611, 3.3062897)

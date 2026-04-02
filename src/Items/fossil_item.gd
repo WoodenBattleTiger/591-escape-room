@@ -117,6 +117,9 @@ var fieldLogInfo
 #used to save the path of the scene used for this script to know what scene to instantiate in the logbook (saved to the globals when the fossil is deposited)
 var fossilScenePath
 
+#this is what fossil is assigned to this fossil item. This is very important for knowing which fossil it should snap to.
+var fossilAssigned
+
 func _ready() -> void:
 	# Enable contact reporting so we can read contact data in _integrate_forces.
 	# https://docs.godotengine.org/en/stable/classes/class_rigidbody3d.html#class-rigidbody3d-property-contact-monitor
@@ -141,21 +144,29 @@ func play_damage_particles(particle_count: int) -> void:
 	# Delegate to the rock_particles node to handle playing the particle effect.
 	rock_particles.play_particles(particle_count)
 
+#assign the fossil (assigned in the fossil_spawn_point)
+func assign_fossil(fossilScenePath: String) -> void:
+	fossilAssigned = load(fossilScenePath).instantiate()
+	add_child(fossilAssigned)
+	_cache_damage_materials()
+
 ## This function is called when the fossil is readied. 
 ## It collects all materials used in the fossil's visual representation and caches them in the _damage_materials array, along with their base colors
 ## so that we can modify their colors later to visually represent damage.
 func _cache_damage_materials() -> void:
 	# Clear any previously cached materials in case this is called more than once for some reason. We want to avoid duplicates and stale references.
 	_damage_materials.clear()
+	if fossilAssigned == null:
+		return
 
 	# We assume that all visual MeshInstance3D nodes are children (or descendants) of a common root node, which is called "SmallFossilRock".
-	var visual_root := get_node_or_null("SmallFossilRock")
-	if visual_root == null:
-		return
+	#var visual_root := get_node_or_null("SmallFossilRock")
+	#if visual_root == null:
+		#return
 
 	# DFS traversal to find all MeshInstance3D nodes under visual_root, then for each material used by those mesh instances, 
 	# we create a duplicate of the material and store it in _damage_materials along with its base color.
-	var mesh_instances := _collect_mesh_instances(visual_root)
+	var mesh_instances := _collect_mesh_instances(fossilAssigned)
 
 	for mesh_instance in mesh_instances:
 
