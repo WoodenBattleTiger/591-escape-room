@@ -103,7 +103,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wdsfw")
 
-[node name="Node3D" type="Node3D"]
+[node name="Tri_Left_Finger_1" type="Node3D"]
 
 [node name="left_finger_1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1604655, 0.4780568, -0.05319023)

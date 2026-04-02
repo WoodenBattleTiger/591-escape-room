@@ -53,6 +53,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rr7x0")
 
-[node name="tri_left_shin" type="MeshInstance3D"]
+[node name="Tri_Left_Shin" type="Node3D"]
+
+[node name="tri_left_shin" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 1.5)
 mesh = SubResource("ArrayMesh_h7v8e")
 skeleton = NodePath("")
