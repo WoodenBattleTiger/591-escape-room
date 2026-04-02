@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://dton0upiox3do"]
+[gd_scene load_steps=11 format=4 uid="uid://dton0upiox3do"]
 
 [ext_resource type="Texture2D" uid="uid://bphu1s7827a8g" path="res://assets/skeletons/triceratops_Image_0.jpg" id="1_fbdln"]
 [ext_resource type="Texture2D" uid="uid://f3ocvhv104o6" path="res://assets/skeletons/triceratops_Image_1.png" id="2_ckc1p"]
 [ext_resource type="Texture2D" uid="uid://c1y74hl5ip0q2" path="res://assets/skeletons/triceratops_Image_2.jpg" id="3_wuaue"]
+[ext_resource type="Material" uid="uid://m4ypidrqta8d" path="res://src/Items/3d_printed_material.tres" id="4_ckc1p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i375f"]
 resource_name = "default"
@@ -109,3 +110,4 @@ skeleton = NodePath("")
 [node name="right_forearm_001" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_et3ea")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_ckc1p")

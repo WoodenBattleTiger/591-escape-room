@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://m4ypidrqta8d"]
+
+[ext_resource type="Texture2D" uid="uid://f3ocvhv104o6" path="res://assets/skeletons/triceratops_Image_1.png" id="1_s8s6b"]
+[ext_resource type="Texture2D" uid="uid://c1y74hl5ip0q2" path="res://assets/skeletons/triceratops_Image_2.jpg" id="2_mdnj6"]
+
+[resource]
+resource_name = "default.001"
+cull_mode = 2
+albedo_color = Color(0.75999475, 0.6080299, 0.61383134, 1)
+metallic_texture_channel = 2
+roughness = 0.5410606
+roughness_texture = ExtResource("1_s8s6b")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("2_mdnj6")
+ao_enabled = true
+ao_texture = ExtResource("1_s8s6b")

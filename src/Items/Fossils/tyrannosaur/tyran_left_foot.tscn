@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://ch7anvxoh4u3a"]
+[gd_scene load_steps=9 format=4 uid="uid://ch7anvxoh4u3a"]
 
 [ext_resource type="Texture2D" uid="uid://wl74ljm2etdj" path="res://assets/skeletons/tyran_fixed_Image_0.jpg" id="1_erdgf"]
+[ext_resource type="Material" uid="uid://m4ypidrqta8d" path="res://src/Items/3d_printed_material.tres" id="2_2otxc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kv7ja"]
 resource_name = "dyno_tex_Material_u1_v1"
@@ -92,3 +93,4 @@ skeleton = NodePath("")
 [node name="left_foot_001" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_0ilms")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_2otxc")
