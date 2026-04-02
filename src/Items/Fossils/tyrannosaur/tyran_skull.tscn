@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://dxcq3qe25ppi4"]
 
 [ext_resource type="Texture2D" uid="uid://wl74ljm2etdj" path="res://assets/skeletons/tyran_fixed_Image_0.jpg" id="1_byuy6"]
-[ext_resource type="Material" uid="uid://m4ypidrqta8d" path="res://src/Items/3d_printed_material.tres" id="2_b3l11"]
+[ext_resource type="Material" uid="uid://br63yain31ypl" path="res://src/Items/tyran_3d_printed_material.tres" id="2_b3l11"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kv7ja"]
 resource_name = "dyno_tex_Material_u1_v1"

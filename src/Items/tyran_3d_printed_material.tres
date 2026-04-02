@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://br63yain31ypl"]
+
+[resource]
+resource_name = "dyno_tex_Material_u1_v1.001"
+cull_mode = 2
+albedo_color = Color(0.552001, 0.50713474, 0.42018783, 1)
+metallic = 0.43119267
+roughness = 0.85812175
