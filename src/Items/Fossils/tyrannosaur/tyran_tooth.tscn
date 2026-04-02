@@ -43,7 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_akbvd")
 
-[node name="tyran_tooth" type="MeshInstance3D"]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+[node name="Tyran_Tooth" type="Node3D"]
+
+[node name="tyran_tooth" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 1.1713333, -1.1639701, -1.5412569)
 mesh = SubResource("ArrayMesh_5a81t")
 skeleton = NodePath("")

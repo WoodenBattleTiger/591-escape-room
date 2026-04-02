@@ -85,12 +85,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_snyba")
 
-[node name="tyran_right_shin" type="MeshInstance3D"]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+[node name="Tyran_Right_Shin" type="Node3D"]
+
+[node name="tyran_right_shin" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -0.23151684, -0.5463791, 0.39820814)
 mesh = SubResource("ArrayMesh_amxnd")
 skeleton = NodePath("")
 
-[node name="right_shin_001" type="MeshInstance3D" parent="."]
+[node name="right_shin_001" type="MeshInstance3D" parent="tyran_right_shin"]
 mesh = SubResource("ArrayMesh_ovk1k")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_vkifh")

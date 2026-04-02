@@ -43,7 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2coek")
 
-[node name="tyran_right_thigh" type="MeshInstance3D"]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+[node name="Tyran_Right_Thigh" type="Node3D"]
+
+[node name="tyran_right_thigh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, -0.9723696, 0.19447374)
 mesh = SubResource("ArrayMesh_gbtg4")
 skeleton = NodePath("")
