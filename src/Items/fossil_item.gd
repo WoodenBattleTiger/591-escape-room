@@ -148,6 +148,7 @@ func play_damage_particles(particle_count: int) -> void:
 func assign_fossil(fossilScenePath: String) -> void:
 	fossilAssigned = load(fossilScenePath).instantiate()
 	add_child(fossilAssigned)
+	_cache_damage_materials()
 
 ## This function is called when the fossil is readied. 
 ## It collects all materials used in the fossil's visual representation and caches them in the _damage_materials array, along with their base colors
