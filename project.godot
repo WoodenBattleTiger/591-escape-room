@@ -15,6 +15,10 @@ run/main_scene="uid://c5p4gplbnj70d"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalInfo="*res://src/globals/globalInfo.gd"
+
 [input]
 
 interact={
