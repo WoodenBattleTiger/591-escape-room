@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=4 uid="uid://bvpd4ivrg2plf"]
+
+[ext_resource type="Texture2D" uid="uid://ci1cqi0kfv3vs" path="res://assets/lab/lab furniture/Furniture/Cabinets/cabinet_cabinet_PastedImage220104-201001.png" id="1_50op2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmvbw"]
+resource_name = "Solid"
+cull_mode = 2
+albedo_texture = ExtResource("1_50op2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w4rwe"]
+_surfaces = [{
+"aabb": AABB(-31.011166, -31.011166, 0, 62.02233, 62.02233, 31.011166),
+"format": 34359742465,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAAAAAIAAAAFAAEABAACAAYABwAAAAQAAwAIAAIABgACAAgACQADAAEACgAEAAYACwAIAAMADAAEAAoADAAHAAQADAADAAkADAALAAMACQAHAAwACgALAAwACgAFAAsACwANAAgABQANAAsABwANAAAABQAAAA0ADgANAAcADgAIAA0ACQAOAAcABgAIAA4ADwAOAAkADwAGAA4ACgAGAA8ADwAFAAoACQABAA8ADwABAAUA"),
+"name": "Solid",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("3hb4wd4W+MHeFvhB3hb4wd4W+EEAAACA3hb4wd4W+EHeFvhB3hb4Qd4W+EEAAACAqMPowajD6MHeFvhB3hb4wd4W+MEAAACAqMPowajD6EHeFvhBqMPoQajD6MHeFvhB3hb4Qd4W+EHeFvhBqMPoQajD6EEAAACAqMPowajD6MEAAACA3hb4Qd4W+MEAAACAqMPoQajD6MEAAACA3hb4Qd4W+MHeFvhBqMPoQajD6EHeFvhBqMPowajD6EEAAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_03qt0"]
+resource_name = "Low Poly - Lab Assets_Cube_473"
+_surfaces = [{
+"aabb": AABB(-31.011166, -31.011166, 0, 62.02233, 62.02233, 31.011166),
+"attribute_data": PackedByteArray("IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4gMKA8sAx8PiAwoDywDHw+IDCgPLAMfD4="),
+"format": 34359742487,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0A"),
+"material": SubResource("StandardMaterial3D_hmvbw"),
+"name": "Solid",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("3hb4wd4W+MHeFvhB3hb4wd4W+EEAAACA3hb4wd4W+EHeFvhB3hb4wd4W+MEAAACA3hb4Qd4W+MEAAACA3hb4Qd4W+EHeFvhB3hb4Qd4W+EEAAACA3hb4Qd4W+MHeFvhB3hb4wd4W+MEAAACA3hb4Qd4W+MHeFvhB3hb4Qd4W+MEAAACA3hb4wd4W+MHeFvhB3hb4Qd4W+EEAAACA3hb4wd4W+EHeFvhB3hb4wd4W+EEAAACA3hb4Qd4W+EHeFvhBqMPowajD6MHeFvhB3hb4wd4W+EHeFvhBqMPowajD6EHeFvhB3hb4wd4W+MHeFvhBqMPowajD6EEAAACA3hb4wd4W+MEAAACAqMPowajD6MEAAACA3hb4wd4W+EEAAACAqMPowajD6MEAAACA3hb4Qd4W+MEAAACAqMPoQajD6MEAAACA3hb4wd4W+MEAAACAqMPoQajD6EEAAACA3hb4wd4W+EEAAACAqMPowajD6EEAAACA3hb4Qd4W+EEAAACAqMPoQajD6MEAAACA3hb4Qd4W+EEAAACAqMPoQajD6EEAAACA3hb4Qd4W+MEAAACAqMPoQajD6EHeFvhB3hb4Qd4W+MHeFvhBqMPoQajD6MHeFvhB3hb4Qd4W+EHeFvhBqMPoQajD6MHeFvhB3hb4wd4W+MHeFvhBqMPowajD6MHeFvhB3hb4Qd4W+MHeFvhBqMPowajD6EHeFvhB3hb4Qd4W+EHeFvhBqMPoQajD6EHeFvhB3hb4wd4W+EHeFvhBqMPowajD6EEAAACAqMPoQajD6EHeFvhBqMPoQajD6EEAAACAqMPowajD6EHeFvhBqMPoQajD6EEAAACAqMPoQajD6MHeFvhBqMPoQajD6MEAAACAqMPoQajD6EHeFvhBqMPoQajD6MEAAACAqMPowajD6MHeFvhBqMPowajD6MEAAACAqMPoQajD6MHeFvhBqMPowajD6MEAAACAqMPowajD6EHeFvhBqMPowajD6EEAAACAqMPowajD6MHeFvhBAAD/f////78AAP9/////vwAA/3////+/AAD/f////7////9/////v////3////+/////f////7////9/////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//3///////7//f///////v/9///////+//3///////7//f/9/////P/9//3////8//3//f////z//f/9/////P/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//38AAP///7//fwAA////v/9/AAD///+//38AAP///78AAP9/////vwAA/3////+/AAD/f////78AAP9/////v/9///////+//3///////7//f///////v/9///////+/////f////7////9/////v////3////+/////f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w4rwe")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_50op2"]
+points = PackedVector3Array(31.011162, 31.011162, 31.011164, 31.011162, -31.011166, 31.011164, 31.011162, 31.011162, 0, -31.011166, 31.011162, 31.011164, 31.011162, -31.011166, 0, -31.011166, -31.011166, 31.011164, -31.011166, 31.011162, 0, -31.011166, -31.011166, 0)
+
+[node name="Low Poly - Lab Assets" type="Node3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+
+[node name="cabinet_cabinet" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_03qt0")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cabinet_cabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cabinet_cabinet/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_50op2")
