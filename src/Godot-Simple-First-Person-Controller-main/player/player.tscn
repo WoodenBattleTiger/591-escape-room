@@ -68,7 +68,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52424634, -0.8291837)
 target_position = Vector3(0, 2.1, 0)
 
 [node name="Crosshair" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,3 +131,46 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 31
 text = "Press \"E\" to Interact"
+
+[node name="Panels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Panels"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.5
+offset_top = -177.0
+offset_right = 356.5
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panels/Panel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 29.0
+offset_right = 683.0
+offset_bottom = 214.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Welcome to the lab!
+
+Use the WASD keys to move. Press E to interact with items. While holding an item, hold left-click and move the mouse to rotate it."
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Panels/Panel"]
+layout_mode = 0
+offset_left = 237.5
+offset_top = 221.0
+offset_right = 493.5
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 22
+text = "Press 'Esc' to Continue..."

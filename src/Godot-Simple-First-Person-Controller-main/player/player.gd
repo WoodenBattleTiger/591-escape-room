@@ -148,6 +148,10 @@ func _physics_process(delta: float) -> void:
 			if is_holding.drop():
 				is_holding = null
 		#drop item
+		
+	#hide tutorial text
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Panels.hide()
 	
 	# The code for raycasting to detect if an object is in front of the player is interactable
 	%InteractText.hide()
