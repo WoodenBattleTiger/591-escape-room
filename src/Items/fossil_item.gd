@@ -790,7 +790,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		carrier_vel = player.get_real_velocity()
 		using_carrier = true
 
-	print("Carrier velocity: ", carrier_vel, ", carrier speed: ", carrier_vel.length())
+	#print("Carrier velocity: ", carrier_vel, ", carrier speed: ", carrier_vel.length())
 	# Keeps track of which contact had the highest relative speed, so we can apply damage based on that.
 	# We don't sum damage across contacts because that leads to a lot more damage than might be expected by the player,
 	# who from their perspective might have just hit one thing, not multiple things at once. 
