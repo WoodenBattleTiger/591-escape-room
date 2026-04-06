@@ -31,7 +31,7 @@ shape = SubResource("BoxShape3D_x300s")
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 2, 0)
 
 [node name="ItemSnapLocation" parent="." instance=ExtResource("1_2hgly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5348506, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6348506, 0)
 rotation_closeness_threshold = 500
 
 [node name="FossilSurface" type="MeshInstance3D" parent="."]
