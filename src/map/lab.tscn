@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://sjpuofixu0uu"]
+[gd_scene load_steps=44 format=4 uid="uid://sjpuofixu0uu"]
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_xl7uu"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_efamr"]
@@ -24,8 +24,15 @@
 [ext_resource type="PackedScene" uid="uid://ymmip5qc18am" path="res://src/map/environment_scenes/desk.tscn" id="22_yntcm"]
 [ext_resource type="PackedScene" uid="uid://bsyl1pwxukplj" path="res://src/map/environment_scenes/computer.tscn" id="23_ubrhc"]
 [ext_resource type="PackedScene" uid="uid://2uexb21uks8n" path="res://assets/lab/lab furniture/window_blinds.glb" id="24_38eqh"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4vl5"]
+[ext_resource type="PackedScene" uid="uid://hndj3m2helur" path="res://assets/lab/lab furniture/misc_brush_low_poly.glb" id="25_7rw3s"]
+[ext_resource type="PackedScene" uid="uid://cksw74kxkflb6" path="res://assets/lab/lab furniture/misc_magnifying_glass.glb" id="26_uhs0c"]
+[ext_resource type="PackedScene" uid="uid://dy3gnnxeucpj2" path="res://assets/lab/lab furniture/machine_electronic_scale.glb" id="27_uhs0c"]
+[ext_resource type="PackedScene" uid="uid://bp6ncn3uhjah1" path="res://assets/fossils/_trex_astragalus.gltf" id="28_1f327"]
+[ext_resource type="PackedScene" uid="uid://yuhpcrb1dj85" path="res://assets/fossils/_trex_forelimb.gltf" id="29_gn5hd"]
+[ext_resource type="PackedScene" uid="uid://chkd5mnftopmj" path="res://assets/fossils/_trex_tooth.gltf" id="30_k8yyt"]
+[ext_resource type="PackedScene" uid="uid://dfxhlci7scbae" path="res://assets/fossils/_trike_quadrate.gltf" id="31_1enth"]
+[ext_resource type="PackedScene" uid="uid://djl7xcauc8wal" path="res://assets/fossils/_turtle_humerus.gltf" id="32_tx1p0"]
+[ext_resource type="PackedScene" uid="uid://bflsgamb7xjpv" path="res://assets/fossils/_trike_skull.gltf" id="33_l80hc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fn6q"]
 albedo_color = Color(0.42088482, 0.42470554, 0.46283662, 1)
@@ -158,15 +165,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kqsoc")
 
 [node name="Level" type="Node3D"]
-
-[node name="cube" type="Node3D" parent="."]
-transform = Transform3D(18, 0, 0, 0, 0.496, 0, 0, 0, 18, 0, 0, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="cube"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cube/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999999, 0.0022568707, 0.02857709, 0.0010320542)
-shape = SubResource("BoxShape3D_g4vl5")
 
 [node name="Player" parent="." instance=ExtResource("1_xl7uu")]
 transform = Transform3D(0.08070354, 0, 0.9967382, 0, 1, 0, -0.9967382, 0, 0.08070354, -2.6117702, 0.7405691, -3.2500842)
@@ -328,7 +326,8 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0.1, 0.79999995, 8.1
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0.1, 2, 8.1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Lab"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9859557, 0, -0.0031404495)
+use_collision = true
 size = Vector3(22, 0.25, 18)
 material = SubResource("StandardMaterial3D_s7pdw")
 
@@ -390,3 +389,30 @@ transform = Transform3D(1.13246855e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.13246855e-
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("24_38eqh")]
 transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, -7.4000006, 0.59999996, 6.2999997)
+
+[node name="Low Poly - Lab Assets" parent="." instance=ExtResource("25_7rw3s")]
+transform = Transform3D(0.010606601, 0.010606601, -4.6362927e-10, 0, -6.5567085e-10, -0.015, -0.010606601, 0.010606601, -4.6362927e-10, -3.6, 1.2249846, 1)
+
+[node name="Low Poly - Lab Assets2" parent="." instance=ExtResource("26_uhs0c")]
+transform = Transform3D(-0.013594617, -0.0063392725, -2.7709857e-10, -1.6272611e-18, -6.556708e-10, 0.015, -0.0063392725, 0.013594617, 5.9423966e-10, -2.1, 1.2, 1)
+
+[node name="Low Poly - Lab Assets3" parent="." instance=ExtResource("27_uhs0c")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -1.2, 1.3153923, 1.4982475)
+
+[node name="_trex_astragalus" parent="." instance=ExtResource("28_1f327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.340226, 1.0051206, -1.0357277)
+
+[node name="_trex_forelimb" parent="." instance=ExtResource("29_gn5hd")]
+transform = Transform3D(-0.053593338, -0.100993335, 0.9934426, -0.21503057, 0.9726989, 0.08728426, -0.9751357, -0.20894268, -0.07384682, -8.3005295, 2.4723346, -5.4109783)
+
+[node name="_trex_tooth" parent="." instance=ExtResource("30_k8yyt")]
+transform = Transform3D(0.97296566, 0, 0.23094985, -0.033849504, 0.98920083, 0.14260414, -0.22845578, -0.14656647, 0.96245843, -8.16444, 0.89363444, -5.4109783)
+
+[node name="_trike_quadrate" parent="." instance=ExtResource("31_1enth")]
+transform = Transform3D(-0.75689256, 0, 0.6535395, 0.16523392, 0.9675109, 0.1913646, -0.6323066, 0.25282934, -0.7323018, -8.293708, 1.7749381, -1.5540228)
+
+[node name="_turtle_humerus" parent="." instance=ExtResource("32_tx1p0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.363979, 1.6304508, -5.715514)
+
+[node name="_trike_skull" parent="." instance=ExtResource("33_l80hc")]
+transform = Transform3D(0.66662353, 0, 0.7453945, 0, 1, 0, -0.7453945, 0, 0.66662353, -8.3704605, 3.225295, -1.572505)
