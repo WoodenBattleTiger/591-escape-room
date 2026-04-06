@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://sjpuofixu0uu"]
+[gd_scene load_steps=53 format=4 uid="uid://sjpuofixu0uu"]
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_xl7uu"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_efamr"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://3c6sj6abqcmr" path="res://assets/lab/paper_Image_0.jpg" id="34_1enth"]
 [ext_resource type="Texture2D" uid="uid://cgwn5lcvwxv7a" path="res://assets/lab/paper_Image_1.png" id="35_tx1p0"]
 [ext_resource type="Texture2D" uid="uid://kvfpu30vo5oh" path="res://assets/lab/paper_Image_2.png" id="36_l80hc"]
+[ext_resource type="Script" uid="uid://bnupjo3x8pw85" path="res://src/dc_audio_manager.gd" id="37_tx1p0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fn6q"]
 albedo_color = Color(0.42088482, 0.42470554, 0.46283662, 1)
@@ -522,3 +523,13 @@ skeleton = NodePath("")
 transform = Transform3D(-0.06577085, 0.036044285, 1.289045e-08, -6.9841864e-15, -2.6822075e-08, 0.074999966, 0.0360443, 0.06577085, 2.3521494e-08, 0.18071002, 1.2348565, -1.56994)
 mesh = SubResource("ArrayMesh_wsu7y")
 skeleton = NodePath("")
+
+[node name="DungeonCrawlerAudioManager" type="Node" parent="."]
+script = ExtResource("37_tx1p0")
+metadata/_custom_type_script = "uid://bnupjo3x8pw85"
+
+[node name="BgmPlayer1" type="AudioStreamPlayer" parent="DungeonCrawlerAudioManager"]
+
+[node name="BgmPlayer2" type="AudioStreamPlayer" parent="DungeonCrawlerAudioManager"]
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="DungeonCrawlerAudioManager"]
