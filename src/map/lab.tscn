@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://sjpuofixu0uu"]
+[gd_scene load_steps=52 format=4 uid="uid://sjpuofixu0uu"]
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_xl7uu"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_efamr"]
@@ -33,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://dfxhlci7scbae" path="res://assets/fossils/_trike_quadrate.gltf" id="31_1enth"]
 [ext_resource type="PackedScene" uid="uid://djl7xcauc8wal" path="res://assets/fossils/_turtle_humerus.gltf" id="32_tx1p0"]
 [ext_resource type="PackedScene" uid="uid://bflsgamb7xjpv" path="res://assets/fossils/_trike_skull.gltf" id="33_l80hc"]
+[ext_resource type="Texture2D" uid="uid://3c6sj6abqcmr" path="res://assets/lab/paper_Image_0.jpg" id="34_1enth"]
+[ext_resource type="Texture2D" uid="uid://cgwn5lcvwxv7a" path="res://assets/lab/paper_Image_1.png" id="35_tx1p0"]
+[ext_resource type="Texture2D" uid="uid://kvfpu30vo5oh" path="res://assets/lab/paper_Image_2.png" id="36_l80hc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fn6q"]
 albedo_color = Color(0.42088482, 0.42470554, 0.46283662, 1)
@@ -163,6 +166,84 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kqsoc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0jl6"]
+resource_name = "lambert3SG.001"
+cull_mode = 2
+albedo_texture = ExtResource("34_1enth")
+metallic = 1.0
+metallic_texture = ExtResource("35_tx1p0")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("35_tx1p0")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("36_l80hc")
+ao_enabled = true
+ao_texture = ExtResource("35_tx1p0")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jf7fl"]
+_surfaces = [{
+"aabb": AABB(-2.692606, -1.941171, 0.229313, 6.359758, 4.506518, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "lambert3SG.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AwD//wAAAAD7/wAAAAAAAAAABgAAAAAA///4/wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wsu7y"]
+resource_name = "paper_Object_0_001"
+_surfaces = [{
+"aabb": AABB(-2.692606, -1.941171, 0.229313, 6.359758, 4.506518, 1e-05),
+"attribute_data": PackedByteArray("Ppdv/S/9XbU+l121L/1v/Q=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_l0jl6"),
+"name": "lambert3SG.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AwD//wAA/n/7/wAAAAD+fwAABgAAAP5////4/wAA/n//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jf7fl")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4383j"]
+_surfaces = [{
+"aabb": AABB(5.231894, -1.956536, 0.229313, 6.384727, 4.521397, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "lambert3SG.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("bwD//wAAAACP/wAAAAAAAAAA3gAAAAAA//8g/wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nbimf"]
+resource_name = "paper_Object_0_002"
+_surfaces = [{
+"aabb": AABB(5.231894, -1.956536, 0.229313, 6.384727, 4.521397, 1e-05),
+"attribute_data": PackedByteArray("5kx+l/iUb/34lH6X5kxv/Q=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_l0jl6"),
+"name": "lambert3SG.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("bwD//wAA5j+P/wAAAADmPwAA3gAAAOY///8g/wAA5j//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4383j")
 
 [node name="Level" type="Node3D"]
 
@@ -416,3 +497,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.363979, 1.6304508, -5.7155
 
 [node name="_trike_skull" parent="." instance=ExtResource("33_l80hc")]
 transform = Transform3D(0.66662353, 0, 0.7453945, 0, 1, 0, -0.7453945, 0, 0.66662353, -8.3704605, 3.225295, -1.572505)
+
+[node name="paper" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.037499987, -0.06495187, -2.3228596e-08, -3.0198066e-14, -2.6822079e-08, 0.074999966, -0.064951874, -0.037499987, -1.3411062e-08, -0.8999982, 1.2141325, 1.0000005)
+mesh = SubResource("ArrayMesh_wsu7y")
+skeleton = NodePath("")
+
+[node name="paper2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.01941142, -0.07244441, -2.5908138e-08, -5.3290705e-15, -2.6822073e-08, 0.07499997, -0.07244441, 0.019411407, 6.9420594e-09, -1.0999975, 1.2046007, 1.0000005)
+mesh = SubResource("ArrayMesh_wsu7y")
+skeleton = NodePath("")
+
+[node name="paper3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.006536685, -0.07471457, -2.672002e-08, 1.7763568e-15, -2.6822079e-08, 0.074999966, -0.07471457, -0.006536682, -2.3377122e-09, -0.45000076, 1.2046019, 1.6000006)
+mesh = SubResource("ArrayMesh_nbimf")
+skeleton = NodePath("")
+
+[node name="paper4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.07199418, -0.02101985, -7.517307e-09, -3.034086e-14, -2.6822077e-08, 0.074999966, -0.02101985, 0.07199417, 2.574712e-08, 0.1332612, 1.2443883, -1.7642292)
+mesh = SubResource("ArrayMesh_wsu7y")
+skeleton = NodePath("")
+
+[node name="paper5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.06577085, 0.036044285, 1.289045e-08, -6.9841864e-15, -2.6822075e-08, 0.074999966, 0.0360443, 0.06577085, 2.3521494e-08, 0.18071002, 1.2348565, -1.56994)
+mesh = SubResource("ArrayMesh_wsu7y")
+skeleton = NodePath("")

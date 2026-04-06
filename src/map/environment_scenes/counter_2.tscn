@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://dcxdbmrcvn1wt"]
+[gd_scene load_steps=7 format=4 uid="uid://dcxdbmrcvn1wt"]
 
 [ext_resource type="Texture2D" uid="uid://dg7r2l17vvxfj" path="res://assets/lab/lab furniture/Furniture/Counters/counter_counter_2_shelves_PastedImage220104-201001.png" id="1_ckyjn"]
+[ext_resource type="Material" uid="uid://coqkwl3idu348" path="res://src/map/environment_scenes/counter_mat.tres" id="2_823up"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xsuf"]
 resource_name = "Solid"
@@ -48,6 +49,7 @@ transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 [node name="counter_counter_2_shelves_001" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_6r1d8")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_823up")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="counter_counter_2_shelves_001"]
 
