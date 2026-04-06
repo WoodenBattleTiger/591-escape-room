@@ -14,3 +14,7 @@ External Assets:
 - "Computer And Gadgets" (https://skfb.ly/o8DRC) by JustBlender is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Window Blinds" (https://skfb.ly/DDGr) by James is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 - "Low-poly Papers Set" (https://skfb.ly/o8yVS) by Hox_Lira is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- "Thinking Music"
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0
+http://creativecommons.org/licenses/by/4.0/
