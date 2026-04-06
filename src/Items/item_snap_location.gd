@@ -71,6 +71,10 @@ func _physics_process(_delta: float) -> void:
 
 func snap_object():
 	print("snapping the object")
+	# Find the audio manager
+	var audio_manager = get_tree().root.get_node_or_null("Node3D/DungeonCrawlerAudioManager")
+	if audio_manager and audio_manager.has_method("play_sound_effect"):
+		audio_manager.play_sound_effect("snapToPosClick")
 	
 	# remove it from the player
 	object = player.is_holding
