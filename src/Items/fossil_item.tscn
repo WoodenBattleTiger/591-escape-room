@@ -1,30 +1,15 @@
-[gd_scene load_steps=14 format=4 uid="uid://dflbtfeqfigs0"]
+[gd_scene load_steps=11 format=4 uid="uid://dflbtfeqfigs0"]
 
 [ext_resource type="Script" uid="uid://b57dk4b820rgi" path="res://src/Items/fossil_item.gd" id="1_5lym3"]
 [ext_resource type="PackedScene" uid="uid://cbefnf5h3s60v" path="res://assets/particle/rock_particles.tscn" id="2_p8frd"]
 [ext_resource type="Texture2D" uid="uid://bphu1s7827a8g" path="res://assets/skeletons/triceratops_Image_0.jpg" id="3_brlbk"]
+[ext_resource type="ArrayMesh" uid="uid://cbw0ck0hl74yh" path="res://assets/fossils/jacket.tres" id="3_o7yjr"]
 [ext_resource type="Texture2D" uid="uid://f3ocvhv104o6" path="res://assets/skeletons/triceratops_Image_1.png" id="4_o7yjr"]
 [ext_resource type="Texture2D" uid="uid://c1y74hl5ip0q2" path="res://assets/skeletons/triceratops_Image_2.jpg" id="5_r2g86"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5lym3"]
 height = 0.97248745
 radius = 0.50341797
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_brlbk"]
-frequency = 0.0227
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o7yjr"]
-noise = SubResource("FastNoiseLite_brlbk")
-seamless = true
-as_normal_map = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2g86"]
-metallic_specular = 0.35
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_o7yjr")
-
-[sub_resource type="SphereMesh" id="SphereMesh_brlbk"]
-material = SubResource("StandardMaterial3D_r2g86")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i375f"]
 resource_name = "default"
@@ -85,7 +70,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011894822, 0)
 shape = SubResource("CylinderShape3D_5lym3")
 
 [node name="PlaceholderMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_brlbk")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("3_o7yjr")
+skeleton = NodePath("")
 
 [node name="left_forearm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3818577, 0.62836695, -0.1961571)

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://doxfdcg8och5r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_brlbk"]
+frequency = 0.0227
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o7yjr"]
+noise = SubResource("FastNoiseLite_brlbk")
+seamless = true
+as_normal_map = true
+
+[resource]
+metallic_specular = 0.35
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_o7yjr")

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://e0sauuoas2s6" path="res://src/map/unjacketing_table.tscn" id="5_v7hv7"]
 [ext_resource type="PackedScene" uid="uid://bos3euuw1dkoo" path="res://src/Items/Fossils/triceratops/_triceratops_assembly.tscn" id="6_bs65j"]
 [ext_resource type="PackedScene" uid="uid://tjopfesi0081" path="res://src/map/environment_scenes/shelf.tscn" id="8_efamr"]
-[ext_resource type="PackedScene" path="res://src/Items/Fossils/tyrannosaur/_tyrannosaur_assembly.tscn" id="8_srl07"]
+[ext_resource type="PackedScene" uid="uid://blvb5ej77266x" path="res://src/Items/Fossils/tyrannosaur/_tyrannosaur_assembly.tscn" id="8_srl07"]
 [ext_resource type="PackedScene" uid="uid://3lftbtkju4w2" path="res://src/map/environment_scenes/counter_1.tscn" id="9_v7hv7"]
 [ext_resource type="PackedScene" uid="uid://dcxdbmrcvn1wt" path="res://src/map/environment_scenes/counter_2.tscn" id="10_5hhjr"]
 [ext_resource type="Material" uid="uid://oilguafba6rb" path="res://src/map/environment_scenes/wall_mat.tres" id="10_s7pdw"]
@@ -1341,7 +1341,7 @@ transform = Transform3D(1.0606601, 0, 1.0606601, 0, 1.5, 0, -1.0606601, 0, 1.060
 transform = Transform3D(1.0606601, 0, 1.0606601, 0, 1.5, 0, -1.0606601, 0, 1.0606601, -2, 0.3, -8.2)
 
 [node name="Sketchfab_Scene6" parent="Lab" instance=ExtResource("20_wxaaa")]
-transform = Transform3D(1.0606601, 0, 1.0606601, 0, 1.5, 0, -1.0606601, 0, 1.0606601, -5, 0.3, -8.2)
+transform = Transform3D(1.0606601, 0, 1.0606601, 0, 1.5, 0, -1.0606601, 0, 1.0606601, -5, 0.3, 2.8000002)
 
 [node name="Low Poly - Lab Assets11" parent="Lab" instance=ExtResource("18_s7pdw")]
 transform = Transform3D(-0.015000001, 0, 2.3283064e-09, 0, 0.015, 0, -2.3283064e-09, 0, -0.015000001, -5.1000004, 1.1999999, 8)
@@ -1460,7 +1460,7 @@ mesh = SubResource("PlaneMesh_t5kqb")
 surface_material_override/0 = SubResource("StandardMaterial3D_bs65j")
 
 [node name="whiteboard2" type="Node3D" parent="Lab"]
-transform = Transform3D(0.21213204, 0, -0.21213204, 0, 0.3, 0, 0.21213204, 0, 0.21213204, -4.746505, 0.12499976, 3.8860471)
+transform = Transform3D(0.2656789, 0, -0.1393367, 0, 0.3, 0, 0.1393367, 0, 0.2656789, -4.976694, 0.12499976, -6.868836)
 
 [node name="Sketchfab_model" type="Node3D" parent="Lab/whiteboard2"]
 transform = Transform3D(0.70710677, -0.70710677, -3.090862e-08, 0, -4.371139e-08, 1, -0.70710677, -0.70710677, -3.090862e-08, 0, 0, 0)
@@ -1573,63 +1573,63 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_4g55w")
 skeleton = NodePath("")
 
-[node name="computer" parent="." instance=ExtResource("23_ubrhc")]
+[node name="computer" parent="Lab" instance=ExtResource("23_ubrhc")]
 transform = Transform3D(1.13246855e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.13246855e-07, 0.20000005, 1.3, -2.4)
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("24_38eqh")]
+[node name="Sketchfab_Scene4" parent="Lab" instance=ExtResource("24_38eqh")]
 transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, -7.4000006, 0.59999996, 6.2999997)
 
-[node name="Low Poly - Lab Assets" parent="." instance=ExtResource("25_7rw3s")]
+[node name="Low Poly - Lab Assets16" parent="Lab" instance=ExtResource("25_7rw3s")]
 transform = Transform3D(0.010606601, 0.010606601, -4.6362927e-10, 0, -6.5567085e-10, -0.015, -0.010606601, 0.010606601, -4.6362927e-10, -3.6, 1.2249846, 1)
 
-[node name="Low Poly - Lab Assets2" parent="." instance=ExtResource("26_uhs0c")]
+[node name="Low Poly - Lab Assets17" parent="Lab" instance=ExtResource("26_uhs0c")]
 transform = Transform3D(-0.013594617, -0.0063392725, -2.7709857e-10, -1.6272611e-18, -6.556708e-10, 0.015, -0.0063392725, 0.013594617, 5.9423966e-10, -2.1, 1.2, 1)
 
-[node name="Low Poly - Lab Assets3" parent="." instance=ExtResource("27_uhs0c")]
+[node name="Low Poly - Lab Assets18" parent="Lab" instance=ExtResource("27_uhs0c")]
 transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -1.2, 1.3153923, 1.4982475)
 
-[node name="_trex_astragalus" parent="." instance=ExtResource("28_1f327")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.340226, 1.0051206, -1.0357277)
-
-[node name="_trex_forelimb" parent="." instance=ExtResource("29_gn5hd")]
-transform = Transform3D(-0.053593338, -0.100993335, 0.9934426, -0.21503057, 0.9726989, 0.08728426, -0.9751357, -0.20894268, -0.07384682, -8.3005295, 2.4723346, -5.4109783)
-
-[node name="_trex_tooth" parent="." instance=ExtResource("30_k8yyt")]
-transform = Transform3D(0.97296566, 0, 0.23094985, -0.033849504, 0.98920083, 0.14260414, -0.22845578, -0.14656647, 0.96245843, -8.16444, 0.89363444, -5.4109783)
-
-[node name="_trike_quadrate" parent="." instance=ExtResource("31_1enth")]
-transform = Transform3D(-0.75689256, 0, 0.6535395, 0.16523392, 0.9675109, 0.1913646, -0.6323066, 0.25282934, -0.7323018, -8.293708, 1.7749381, -1.5540228)
-
-[node name="_turtle_humerus" parent="." instance=ExtResource("32_tx1p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.363979, 1.6304508, -5.715514)
-
-[node name="_trike_skull" parent="." instance=ExtResource("33_l80hc")]
-transform = Transform3D(0.66662353, 0, 0.7453945, 0, 1, 0, -0.7453945, 0, 0.66662353, -8.3704605, 3.225295, -1.572505)
-
-[node name="paper" type="MeshInstance3D" parent="."]
+[node name="paper6" type="MeshInstance3D" parent="Lab"]
 transform = Transform3D(0.037499987, -0.06495187, -2.3228596e-08, -3.0198066e-14, -2.6822079e-08, 0.074999966, -0.064951874, -0.037499987, -1.3411062e-08, -0.8999982, 1.2141325, 1.0000005)
 mesh = SubResource("ArrayMesh_wsu7y")
 skeleton = NodePath("")
 
-[node name="paper2" type="MeshInstance3D" parent="."]
+[node name="paper7" type="MeshInstance3D" parent="Lab"]
 transform = Transform3D(-0.01941142, -0.07244441, -2.5908138e-08, -5.3290705e-15, -2.6822073e-08, 0.07499997, -0.07244441, 0.019411407, 6.9420594e-09, -1.0999975, 1.2046007, 1.0000005)
 mesh = SubResource("ArrayMesh_wsu7y")
 skeleton = NodePath("")
 
-[node name="paper3" type="MeshInstance3D" parent="."]
+[node name="paper8" type="MeshInstance3D" parent="Lab"]
 transform = Transform3D(0.006536685, -0.07471457, -2.672002e-08, 1.7763568e-15, -2.6822079e-08, 0.074999966, -0.07471457, -0.006536682, -2.3377122e-09, -0.45000076, 1.2046019, 1.6000006)
 mesh = SubResource("ArrayMesh_nbimf")
 skeleton = NodePath("")
 
-[node name="paper4" type="MeshInstance3D" parent="."]
+[node name="paper9" type="MeshInstance3D" parent="Lab"]
 transform = Transform3D(-0.07199418, -0.02101985, -7.517307e-09, -3.034086e-14, -2.6822077e-08, 0.074999966, -0.02101985, 0.07199417, 2.574712e-08, 0.1332612, 1.2443883, -1.7642292)
 mesh = SubResource("ArrayMesh_wsu7y")
 skeleton = NodePath("")
 
-[node name="paper5" type="MeshInstance3D" parent="."]
+[node name="paper10" type="MeshInstance3D" parent="Lab"]
 transform = Transform3D(-0.06577085, 0.036044285, 1.289045e-08, -6.9841864e-15, -2.6822075e-08, 0.074999966, 0.0360443, 0.06577085, 2.3521494e-08, 0.18071002, 1.2348565, -1.56994)
 mesh = SubResource("ArrayMesh_wsu7y")
 skeleton = NodePath("")
+
+[node name="_trex_astragalus" parent="Lab" instance=ExtResource("28_1f327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.340226, 1.0051206, -1.0357277)
+
+[node name="_trex_forelimb" parent="Lab" instance=ExtResource("29_gn5hd")]
+transform = Transform3D(-0.053593338, -0.100993335, 0.9934426, -0.21503057, 0.9726989, 0.08728426, -0.9751357, -0.20894268, -0.07384682, -8.3005295, 2.4723346, -5.4109783)
+
+[node name="_trex_tooth" parent="Lab" instance=ExtResource("30_k8yyt")]
+transform = Transform3D(0.97296566, 0, 0.23094985, -0.033849504, 0.98920083, 0.14260414, -0.22845578, -0.14656647, 0.96245843, -8.16444, 0.89363444, -5.4109783)
+
+[node name="_trike_quadrate" parent="Lab" instance=ExtResource("31_1enth")]
+transform = Transform3D(-0.75689256, 0, 0.6535395, 0.16523392, 0.9675109, 0.1913646, -0.6323066, 0.25282934, -0.7323018, -8.293708, 1.7749381, -1.5540228)
+
+[node name="_turtle_humerus" parent="Lab" instance=ExtResource("32_tx1p0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.363979, 1.6304508, -5.715514)
+
+[node name="_trike_skull" parent="Lab" instance=ExtResource("33_l80hc")]
+transform = Transform3D(0.66662353, 0, 0.7453945, 0, 1, 0, -0.7453945, 0, 0.66662353, -8.3704605, 3.225295, -1.572505)
 
 [node name="DungeonCrawlerAudioManager" type="Node" parent="."]
 script = ExtResource("37_tx1p0")

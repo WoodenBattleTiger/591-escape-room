@@ -1,10 +1,10 @@
 extends Node
 
 var fossil_scenes_triceratops: Array = [
-	"res://src/Items/Fossils/triceratops/tri_neck_bone.tscn",
 	"res://src/Items/Fossils/triceratops/tri_left_thigh.tscn",
 	"res://src/Items/Fossils/triceratops/tri_right_shoulder.tscn",
 	"res://src/Items/Fossils/triceratops/tri_left_flank.tscn",
+	"res://src/Items/Fossils/triceratops/tri_neck_bone.tscn",
 	"res://src/Items/Fossils/triceratops/tri_right_hip.tscn",
 	"res://src/Items/Fossils/triceratops/tri_left_forearm.tscn",
 	"res://src/Items/Fossils/triceratops/tri_rib_2.tscn",

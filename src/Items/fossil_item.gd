@@ -342,7 +342,7 @@ func pickup():
 		# Keep the rigid body under world/terrain while held.
 		# RigidBody3D nodes behave most predictably when simulated in world space rather than inheriting a fast-moving parent transform.
 		# Parenting to the player can create visible jitter/choppiness because the body is influenced by both parent transform changes and physics.
-		var terrain = get_tree().root.get_node_or_null("Node3D/dc_terrain")
+		var terrain = get_tree().root.get_node_or_null("Level")
 		reparent(terrain if terrain != null else get_tree().root, true)
 		gravity_scale = 0.0
 		rotation = Vector3(0.0, 0.0, 0.0)
@@ -423,14 +423,14 @@ func pickup():
 func drop() -> bool:
 	var cast = player.get_node("HeadPosition/LandingAnimation/Camera3D/SeeCast")
 	var collider = cast.get_collider()
-	if collider == null: #this check isn't perfect but it's better than nothing
+	if collider is RigidBody3D || collider == null: #this check isn't perfect but it's better than nothing
 		_reset_hold_rotation_offsets()
 		# Once the fossil is dropped, 
 		# we want it to be able to collide with the player again.
 		_set_player_collision_ignored(false)
 		# Any normal drop path ends the hold session.
 		_hold_session_active = false
-		reparent(get_tree().root.get_node("Node3D/dc_terrain"), true)
+		reparent(get_tree().root.get_node("Level"), true)
 		gravity_scale = 1.0
 		isInteractable = true
 		freeze = false
