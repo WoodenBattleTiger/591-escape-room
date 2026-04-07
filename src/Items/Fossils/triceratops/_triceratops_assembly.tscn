@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, -0.6, 0.2)
 rotation_closeness_threshold = 45
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_hand"
-snap_time = 0.45
+snap_time = 0.65
 
 [node name="tri_left_hip_ItemSnapLocation5" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.4, -0.9)
