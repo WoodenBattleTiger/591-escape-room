@@ -28,7 +28,7 @@ var printNumber = 0
 @export var snap_time : float = 0.1
 
 ## Opacity of the ghost placement preview mesh.
-@export_range(0.0, 1.0, 0.01) var ghost_alpha := 0.35
+@export_range(0.0, 1.0, 0.01) var ghost_alpha := 0.15
 
 ## Tint used for the ghost placement preview.
 @export var ghost_tint := Color(0.65, 0.85, 1.0, 0.35)
@@ -197,12 +197,12 @@ func _clear_ghost_preview() -> void:
 func snap_object():
 	print("snapping the object")
 	# Find the audio manager
-	var audio_manager = get_tree().root.get_node_or_null("Level/DungeonCrawlerAudioManager")
+	var audio_manager : DungeonCrawlerAudioManager = get_tree().root.get_node_or_null("Level/DungeonCrawlerAudioManager")
 	if audio_manager and audio_manager.has_method("play_sound_effect"):
 		print("playing sound effect")
 		
 		if fossilTypeAllowed == FossilItem.FossilState.PRINTED: # basically checking if we are one of the final ones
-			audio_manager.play_sound_effect("snapToPosClick")
+			audio_manager.play_sound_effect("snapToPosClick", 1.0, 0.7)
 		else:
 			print("the second sfx")
 			audio_manager.play_sound_effect("snapToPosClick2", 0.5, 0.5)
