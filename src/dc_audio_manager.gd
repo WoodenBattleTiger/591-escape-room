@@ -14,6 +14,8 @@ const rockSound6: AudioStream = preload("res://assets/audio/sfx/rocks-06.ogg")
 const snapToPosClick: AudioStream = preload("res://assets/audio/sfx/bone snapular.ogg")
 const snapToPosClick2: AudioStreamWAV = preload("res://assets/audio/sfx/clicking.wav")
 
+const starSparkle: AudioStream = preload("res://assets/audio/sfx/star_sparkle.mp3")
+
 # Defines a map between a string and a sound effect,
 # so that the main script can just call play_sound("sfx_name"),
 # or switch_background_music("bgm_name"), and this script will know which sound to play.
@@ -25,7 +27,8 @@ var sound_effects_map = {
 	"rockSound5": rockSound5,
 	"rockSound6": rockSound6,
 	"snapToPosClick": snapToPosClick,
-	"snapToPosClick2": snapToPosClick2
+	"snapToPosClick2": snapToPosClick2,
+	"starSparkle": starSparkle
 }
 
 var background_music_map = {
