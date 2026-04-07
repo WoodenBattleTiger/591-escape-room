@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://blvb5ej77266x"]
+
+[ext_resource type="PackedScene" uid="uid://ib0g34ub5f88" path="res://src/Items/Fossils/tyrannosaur/_tyran_main_body.tscn" id="1_3vil8"]
+[ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="2_hvy8c"]
+
+[node name="TyrannosaurAssembly" type="Node3D"]
+
+[node name="_main_body" parent="." instance=ExtResource("1_3vil8")]
+
+[node name="tyran_hip_and_pelvis_ItemSnapLocation2" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992, 0)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_hip_and_pelvis"
+snap_time = 1.0
+
+[node name="tyran_left_arm_ItemSnapLocation3" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926, 0.837, 0.674)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_left_arm"
+snap_time = 1.0
+
+[node name="tyran_left_calf_ItemSnapLocation4" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17, 0.563, 0.2)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_left_calf"
+snap_time = 1.0
+
+[node name="tyran_left_foot_ItemSnapLocation5" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232, 0.102, 0.213)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_left_foot"
+snap_time = 1.0
+
+[node name="tyran_left_shoulder_ItemSnapLocation6" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.833, 1.065, 0.676)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_left_shoulder"
+snap_time = 1.0
+
+[node name="tyran_left_thigh_ItemSnapLocation7" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074, 0.972, 0.222)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_left_thigh"
+snap_time = 1.0
+
+[node name="tyran_right_arm_ItemSnapLocation8" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.204, 0.833, 0.482)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_right_arm"
+snap_time = 1.0
+
+[node name="tyran_right_foot_ItemSnapLocation9" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.13, -0.593)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_right_foot"
+snap_time = 1.0
+
+[node name="tyran_right_shin_ItemSnapLocation10" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232, 0.546, -0.398)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_right_shin"
+snap_time = 1.0
+
+[node name="tyran_right_shoulder_ItemSnapLocation11" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.093, 1.056, 0.417)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_right_shoulder"
+snap_time = 1.0
+
+[node name="tyran_right_thigh_ItemSnapLocation12" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.972, -0.194)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_right_thigh"
+snap_time = 1.0
+
+[node name="tyran_skull_ItemSnapLocation13" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.195, 1.139, 1.278)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_skull"
+snap_time = 1.0
+
+[node name="tyran_tooth_ItemSnapLocation14" parent="." instance=ExtResource("2_hvy8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.171, 1.164, 1.541)
+fossilTypeAllowed = 4
+snapped_object_name = "tyran_tooth"
+snap_time = 1.0

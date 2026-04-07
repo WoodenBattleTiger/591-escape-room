@@ -5,7 +5,7 @@ extends RigidBody3D
 const MAX_HEALTH := 100.0
 
 enum FossilState { JACKETED, ONTABLE, UNJACKETED, INPRINTER, PRINTED}
-var currFossilState = FossilState.JACKETED
+@export var currFossilState = FossilState.JACKETED
 
 var isInteractable = true
 var interactableText = "Press \"e\" to pick up"
@@ -118,7 +118,7 @@ var fieldLogInfo
 var fossilScenePath
 
 #this is what fossil is assigned to this fossil item. This is very important for knowing which fossil it should snap to.
-var fossilAssigned
+@export var fossilAssigned : Node
 
 func _ready() -> void:
 	# Enable contact reporting so we can read contact data in _integrate_forces.
@@ -812,7 +812,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 	# We only apply damage if the impact speed exceeds our threshold, 
 	# so stuff like just leaving the fossil on the ground or gently placing it down doesn't cause damage.
-	if max_speed >= min_damage_speed:
+	if false:#max_speed >= min_damage_speed:
 		print("Applying damage from impact. Impact speed: ", max_speed, ", Health before: ", health)
 		# We calculate damage as a linear function of how much the impact speed exceeds the threshold, multiplied by our damage multiplier.
 		# This is opposed to calculating it as max_speed * damage_per_speed, as that would mean anything barely above the threshold could cause a lot of damage

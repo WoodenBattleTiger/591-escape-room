@@ -23,6 +23,8 @@ var player : Player
 ## name of the object to snap to this location. if empty, will accept any object
 @export var snapped_object_name : String = ""
 
+@export var snap_time : float = 0.1
+
 #tracks the fossil being held
 var object : FossilItem
 
@@ -37,18 +39,17 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	if player.is_holding: # TODO also add a check to make sure it is actually the correct object
-		pass
-		
-		
-		# but check position and rotation separately
-		#var lc = location_check(player.is_holding)
-		#var rc = rotation_check(player.is_holding)
 		
 		# TODO remove and turn back into functionsvar dist = global_position.distance_to(object.global_position)
 		object = player.is_holding
 		
 		#null check because of occassional race condition
 		if not is_instance_valid(object):
+			return
+		
+		
+		if not (snapped_object_name == "" or snapped_object_name == object.fossilAssigned.name):
+			# TODO TEST THIS later
 			return
 			
 		# distance check
@@ -61,12 +62,12 @@ func _physics_process(_delta: float) -> void:
 		var angle_dist = rad_to_deg(rot_a.angle_to(rot_b))
 		var r_check =  angle_dist < rotation_closeness_threshold
 		
-		#print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
+		print("name: ", name)
+		print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
+		print(object.currFossilState, fossilTypeAllowed)
 		
 		if l_check and r_check and object.currFossilState == fossilTypeAllowed:
-			 # TODO TEST THIS later
-			if snapped_object_name == "" or snapped_object_name == object.fossilAssigned.name:
-				snap_object()
+			snap_object()
  
 
 func snap_object():
@@ -85,7 +86,7 @@ func snap_object():
 	object.update_state_on_snap()
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(object, "global_transform", global_transform, 0.1)
+	tween.tween_property(object, "global_transform", global_transform, snap_time)
 	tween.set_ease(Tween.EASE_IN)
 	
 	# TODO play particles and a sound effect
