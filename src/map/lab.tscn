@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://sjpuofixu0uu"]
+[gd_scene load_steps=90 format=4 uid="uid://sjpuofixu0uu"]
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://src/Godot-Simple-First-Person-Controller-main/player/player.tscn" id="1_xl7uu"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="3_efamr"]
@@ -25,11 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://bsyl1pwxukplj" path="res://src/map/environment_scenes/computer.tscn" id="23_ubrhc"]
 [ext_resource type="PackedScene" uid="uid://2uexb21uks8n" path="res://assets/lab/lab furniture/window_blinds.glb" id="24_38eqh"]
 [ext_resource type="PackedScene" uid="uid://hndj3m2helur" path="res://assets/lab/lab furniture/misc_brush_low_poly.glb" id="25_7rw3s"]
-[ext_resource type="PackedScene" path="res://src/map/environment_scenes/whiteboard.tscn" id="25_tx1p0"]
+[ext_resource type="PackedScene" uid="uid://3k1mycnbp5pi" path="res://src/map/environment_scenes/whiteboard.tscn" id="25_tx1p0"]
 [ext_resource type="Texture2D" uid="uid://d2jtdsbwvpuyn" path="res://assets/lab/textures/yay.png" id="26_l80hc"]
 [ext_resource type="PackedScene" uid="uid://cksw74kxkflb6" path="res://assets/lab/lab furniture/misc_magnifying_glass.glb" id="26_uhs0c"]
 [ext_resource type="PackedScene" uid="uid://dy3gnnxeucpj2" path="res://assets/lab/lab furniture/machine_electronic_scale.glb" id="27_uhs0c"]
 [ext_resource type="PackedScene" uid="uid://bp6ncn3uhjah1" path="res://assets/fossils/_trex_astragalus.gltf" id="28_1f327"]
+[ext_resource type="PackedScene" uid="uid://b6bosfun5bs3j" path="res://src/Items/Fossils/fossil_spawn_point.tscn" id="28_mdytw"]
 [ext_resource type="PackedScene" uid="uid://yuhpcrb1dj85" path="res://assets/fossils/_trex_forelimb.gltf" id="29_gn5hd"]
 [ext_resource type="PackedScene" uid="uid://chkd5mnftopmj" path="res://assets/fossils/_trex_tooth.gltf" id="30_k8yyt"]
 [ext_resource type="PackedScene" uid="uid://dfxhlci7scbae" path="res://assets/fossils/_trike_quadrate.gltf" id="31_1enth"]
@@ -714,7 +715,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.501252, 1.1040316, -4.11846
 fossilTypeAllowed = 4
 
 [node name="3dPrinter" parent="." instance=ExtResource("4_0r2xv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9790597, 0.15217134, 8.293639)
+transform = Transform3D(-1, 0, 2.7814184e-07, 0, 1, 0, -2.7814184e-07, 0, -1, -2.9790597, 0.15217134, 8.293639)
 
 [node name="JacketingTable" parent="." instance=ExtResource("5_v7hv7")]
 transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -2.8348162, 0.14375219, 1.1314255)
@@ -1100,3 +1101,6 @@ script = ExtResource("37_tx1p0")
 [node name="BgmPlayer2" type="AudioStreamPlayer" parent="DungeonCrawlerAudioManager"]
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="DungeonCrawlerAudioManager"]
+
+[node name="FossilSpawnPoint" parent="." instance=ExtResource("28_mdytw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.835693, 1.2108929, 1.1892371)
