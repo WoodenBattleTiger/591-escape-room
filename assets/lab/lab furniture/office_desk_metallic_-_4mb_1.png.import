@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlj4a3f4m3g7e"
 path.s3tc="res://.godot/imported/office_desk_metallic_-_4mb_1.png-362a58949db79d29359a1bd098dbb9af.s3tc.ctex"
+path.etc2="res://.godot/imported/office_desk_metallic_-_4mb_1.png-362a58949db79d29359a1bd098dbb9af.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/lab/lab furniture/office_desk_metallic_-_4mb_1.png"
-dest_files=["res://.godot/imported/office_desk_metallic_-_4mb_1.png-362a58949db79d29359a1bd098dbb9af.s3tc.ctex"]
+dest_files=["res://.godot/imported/office_desk_metallic_-_4mb_1.png-362a58949db79d29359a1bd098dbb9af.s3tc.ctex", "res://.godot/imported/office_desk_metallic_-_4mb_1.png-362a58949db79d29359a1bd098dbb9af.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uko6kkx16khn"
 path.s3tc="res://.godot/imported/misc_brush_low_poly_PastedImage220104-201001.png-a55fe2cbb7a8171e510671c671084243.s3tc.ctex"
+path.etc2="res://.godot/imported/misc_brush_low_poly_PastedImage220104-201001.png-a55fe2cbb7a8171e510671c671084243.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/lab/lab furniture/misc_brush_low_poly_PastedImage220104-201001.png"
-dest_files=["res://.godot/imported/misc_brush_low_poly_PastedImage220104-201001.png-a55fe2cbb7a8171e510671c671084243.s3tc.ctex"]
+dest_files=["res://.godot/imported/misc_brush_low_poly_PastedImage220104-201001.png-a55fe2cbb7a8171e510671c671084243.s3tc.ctex", "res://.godot/imported/misc_brush_low_poly_PastedImage220104-201001.png-a55fe2cbb7a8171e510671c671084243.etc2.ctex"]
 
 [params]
 

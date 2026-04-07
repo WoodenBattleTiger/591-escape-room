@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4jkv3qaud6w0"
 path.s3tc="res://.godot/imported/counter_counter_top_outlet_PastedImage220104-201001.png-d4652805547ed5d3e8975bf07710a570.s3tc.ctex"
+path.etc2="res://.godot/imported/counter_counter_top_outlet_PastedImage220104-201001.png-d4652805547ed5d3e8975bf07710a570.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/lab/lab furniture/Furniture/Counters/counter_counter_top_outlet_PastedImage220104-201001.png"
-dest_files=["res://.godot/imported/counter_counter_top_outlet_PastedImage220104-201001.png-d4652805547ed5d3e8975bf07710a570.s3tc.ctex"]
+dest_files=["res://.godot/imported/counter_counter_top_outlet_PastedImage220104-201001.png-d4652805547ed5d3e8975bf07710a570.s3tc.ctex", "res://.godot/imported/counter_counter_top_outlet_PastedImage220104-201001.png-d4652805547ed5d3e8975bf07710a570.etc2.ctex"]
 
 [params]
 

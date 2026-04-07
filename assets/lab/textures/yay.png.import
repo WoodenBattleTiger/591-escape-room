@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2jtdsbwvpuyn"
 path.s3tc="res://.godot/imported/yay.png-3da1ef9bb354a6c158d4c233444f8b6b.s3tc.ctex"
+path.etc2="res://.godot/imported/yay.png-3da1ef9bb354a6c158d4c233444f8b6b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/lab/textures/yay.png"
-dest_files=["res://.godot/imported/yay.png-3da1ef9bb354a6c158d4c233444f8b6b.s3tc.ctex"]
+dest_files=["res://.godot/imported/yay.png-3da1ef9bb354a6c158d4c233444f8b6b.s3tc.ctex", "res://.godot/imported/yay.png-3da1ef9bb354a6c158d4c233444f8b6b.etc2.ctex"]
 
 [params]
 

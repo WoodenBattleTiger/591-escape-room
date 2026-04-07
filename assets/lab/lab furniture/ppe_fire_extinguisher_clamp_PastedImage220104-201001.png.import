@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkm3x6b2am0gv"
 path.s3tc="res://.godot/imported/ppe_fire_extinguisher_clamp_PastedImage220104-201001.png-20ebeb196c0f2bc0b521c700a8b8c966.s3tc.ctex"
+path.etc2="res://.godot/imported/ppe_fire_extinguisher_clamp_PastedImage220104-201001.png-20ebeb196c0f2bc0b521c700a8b8c966.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/lab/lab furniture/ppe_fire_extinguisher_clamp_PastedImage220104-201001.png"
-dest_files=["res://.godot/imported/ppe_fire_extinguisher_clamp_PastedImage220104-201001.png-20ebeb196c0f2bc0b521c700a8b8c966.s3tc.ctex"]
+dest_files=["res://.godot/imported/ppe_fire_extinguisher_clamp_PastedImage220104-201001.png-20ebeb196c0f2bc0b521c700a8b8c966.s3tc.ctex", "res://.godot/imported/ppe_fire_extinguisher_clamp_PastedImage220104-201001.png-20ebeb196c0f2bc0b521c700a8b8c966.etc2.ctex"]
 
 [params]
 

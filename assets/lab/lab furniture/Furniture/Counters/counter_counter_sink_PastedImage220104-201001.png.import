@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3vbxjh8ywwlb"
 path.s3tc="res://.godot/imported/counter_counter_sink_PastedImage220104-201001.png-f08bcab98bc09e2746d00966fa894f1b.s3tc.ctex"
+path.etc2="res://.godot/imported/counter_counter_sink_PastedImage220104-201001.png-f08bcab98bc09e2746d00966fa894f1b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/lab/lab furniture/Furniture/Counters/counter_counter_sink_PastedImage220104-201001.png"
-dest_files=["res://.godot/imported/counter_counter_sink_PastedImage220104-201001.png-f08bcab98bc09e2746d00966fa894f1b.s3tc.ctex"]
+dest_files=["res://.godot/imported/counter_counter_sink_PastedImage220104-201001.png-f08bcab98bc09e2746d00966fa894f1b.s3tc.ctex", "res://.godot/imported/counter_counter_sink_PastedImage220104-201001.png-f08bcab98bc09e2746d00966fa894f1b.etc2.ctex"]
 
 [params]
 

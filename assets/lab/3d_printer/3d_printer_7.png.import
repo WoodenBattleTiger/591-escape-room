@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lt3wjdfr4ruf"
 path.s3tc="res://.godot/imported/3d_printer_7.png-29f693f5b3243fc55ae0729a2bde8bcf.s3tc.ctex"
+path.etc2="res://.godot/imported/3d_printer_7.png-29f693f5b3243fc55ae0729a2bde8bcf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/lab/3d_printer/3d_printer_7.png"
-dest_files=["res://.godot/imported/3d_printer_7.png-29f693f5b3243fc55ae0729a2bde8bcf.s3tc.ctex"]
+dest_files=["res://.godot/imported/3d_printer_7.png-29f693f5b3243fc55ae0729a2bde8bcf.s3tc.ctex", "res://.godot/imported/3d_printer_7.png-29f693f5b3243fc55ae0729a2bde8bcf.etc2.ctex"]
 
 [params]
 

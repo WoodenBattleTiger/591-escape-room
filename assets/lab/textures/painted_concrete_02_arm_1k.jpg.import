@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://werxo6g8w435"
 path.s3tc="res://.godot/imported/painted_concrete_02_arm_1k.jpg-08324c4eeed1afc2d5d490d0f0f99dee.s3tc.ctex"
+path.etc2="res://.godot/imported/painted_concrete_02_arm_1k.jpg-08324c4eeed1afc2d5d490d0f0f99dee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/lab/textures/painted_concrete_02_arm_1k.jpg"
-dest_files=["res://.godot/imported/painted_concrete_02_arm_1k.jpg-08324c4eeed1afc2d5d490d0f0f99dee.s3tc.ctex"]
+dest_files=["res://.godot/imported/painted_concrete_02_arm_1k.jpg-08324c4eeed1afc2d5d490d0f0f99dee.s3tc.ctex", "res://.godot/imported/painted_concrete_02_arm_1k.jpg-08324c4eeed1afc2d5d490d0f0f99dee.etc2.ctex"]
 
 [params]
 

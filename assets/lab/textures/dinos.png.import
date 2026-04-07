@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bs8i7y2gi8jxj"
 path.s3tc="res://.godot/imported/dinos.png-bbc6c63c38a88fc415729a3066fc7c38.s3tc.ctex"
+path.etc2="res://.godot/imported/dinos.png-bbc6c63c38a88fc415729a3066fc7c38.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/lab/textures/dinos.png"
-dest_files=["res://.godot/imported/dinos.png-bbc6c63c38a88fc415729a3066fc7c38.s3tc.ctex"]
+dest_files=["res://.godot/imported/dinos.png-bbc6c63c38a88fc415729a3066fc7c38.s3tc.ctex", "res://.godot/imported/dinos.png-bbc6c63c38a88fc415729a3066fc7c38.etc2.ctex"]
 
 [params]
 

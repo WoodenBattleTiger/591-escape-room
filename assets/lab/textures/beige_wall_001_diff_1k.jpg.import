@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://j2et4gyycwut"
 path.s3tc="res://.godot/imported/beige_wall_001_diff_1k.jpg-16b4e0d921d0332c979a555dae2b3867.s3tc.ctex"
+path.etc2="res://.godot/imported/beige_wall_001_diff_1k.jpg-16b4e0d921d0332c979a555dae2b3867.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/lab/textures/beige_wall_001_diff_1k.jpg"
-dest_files=["res://.godot/imported/beige_wall_001_diff_1k.jpg-16b4e0d921d0332c979a555dae2b3867.s3tc.ctex"]
+dest_files=["res://.godot/imported/beige_wall_001_diff_1k.jpg-16b4e0d921d0332c979a555dae2b3867.s3tc.ctex", "res://.godot/imported/beige_wall_001_diff_1k.jpg-16b4e0d921d0332c979a555dae2b3867.etc2.ctex"]
 
 [params]
 

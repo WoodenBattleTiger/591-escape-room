@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wl74ljm2etdj"
 path.s3tc="res://.godot/imported/tyran_fixed_Image_0.jpg-ab28f459d4d7c6afa6afa4e4d8a3a742.s3tc.ctex"
+path.etc2="res://.godot/imported/tyran_fixed_Image_0.jpg-ab28f459d4d7c6afa6afa4e4d8a3a742.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/skeletons/tyran_fixed_Image_0.jpg"
-dest_files=["res://.godot/imported/tyran_fixed_Image_0.jpg-ab28f459d4d7c6afa6afa4e4d8a3a742.s3tc.ctex"]
+dest_files=["res://.godot/imported/tyran_fixed_Image_0.jpg-ab28f459d4d7c6afa6afa4e4d8a3a742.s3tc.ctex", "res://.godot/imported/tyran_fixed_Image_0.jpg-ab28f459d4d7c6afa6afa4e4d8a3a742.etc2.ctex"]
 
 [params]
 

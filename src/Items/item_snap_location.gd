@@ -79,11 +79,11 @@ func _physics_process(_delta: float) -> void:
 		var angle_dist = rad_to_deg(rot_a.angle_to(rot_b))
 		var r_check =  angle_dist < rotation_closeness_threshold
 		
-		if printNumber % 100 == 0:
-			print("name: ", name)
-			print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
-			print(object.currFossilState, fossilTypeAllowed)
-		printNumber += 1
+		#if printNumber % 100 == 0:
+			#print("name: ", name)
+			#print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
+			#print(object.currFossilState, fossilTypeAllowed)
+		#printNumber += 1
 
 		if l_check and r_check and object.currFossilState == fossilTypeAllowed:
 			snap_object()
