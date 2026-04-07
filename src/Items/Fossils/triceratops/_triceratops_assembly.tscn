@@ -50,7 +50,7 @@ snapped_object_name = "tri_left_hip"
 snap_time = 0.65
 
 [node name="tri_left_horn_ItemSnapLocation6" parent="_main_body" instance=ExtResource("2_le2mo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.7, 2.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.7, 2.4)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_horn"
 snap_time = 0.65
