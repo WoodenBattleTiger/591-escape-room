@@ -32,7 +32,7 @@ func getRandomFossil():
 	#print(randf())
 	var num = randf()
 	var triceratopsBoneSelected = num < 0.65
-	#var triceratopsBoneSelected = true
+	#var triceratopsBoneSelected = false
 	print("HERE IS THE RESULT: " + str(triceratopsBoneSelected) + str(num))
 	
 	if !triceratopsBoneSelected && tyrannosaurIndex >= GlobalInfo.shuffled_tyrannosaur_scenes.size():
@@ -43,15 +43,15 @@ func getRandomFossil():
 	# Also spawn a triceratops bone even if the tyrannosaur bone was selected IF the tyrannosaur bones have all been deposited
 	if (triceratopsBoneSelected && triceratopsIndex < GlobalInfo.shuffled_triceratops_scenes.size()):
 		print("triceratops bone spawned!")
-		triceratopsIndex += 1
 		fossil.position = self.position
 		#put the fossil into the world
 		get_parent().add_child(fossil)
 		fossil.assign_fossil(GlobalInfo.shuffled_triceratops_scenes[triceratopsIndex])
+		triceratopsIndex += 1
 	else:
 		print("tyrannosaur bone spawned!")
-		tyrannosaurIndex += 1
 		fossil.position = self.position
 		#put the fossil into the world
 		get_parent().add_child(fossil)
 		fossil.assign_fossil(GlobalInfo.shuffled_tyrannosaur_scenes[tyrannosaurIndex])
+		tyrannosaurIndex += 1
