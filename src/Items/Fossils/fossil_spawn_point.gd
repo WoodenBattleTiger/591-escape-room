@@ -1,3 +1,4 @@
+class_name FossilSpawnPoint
 extends Node
 
 var triceratopsIndex = 0
@@ -7,6 +8,7 @@ var fossil_item_scene = preload("res://src/Items/fossil_item.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("fossil_spawn_point")
 	getRandomFossil.call_deferred()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
