@@ -1,8 +1,8 @@
 class_name Printer3D
 extends Node3D
 
-var isInteractable = false
-var interactableText = "Press \"e\" to use 3D printer"
+var isInteractable: bool = true
+var interactableText: String = "Press \"e\" to use 3D printer"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +14,7 @@ func interact():
 	print("do something here")
 	
 	#printer can't be interacted with anymore
-	isInteractable = false
+	#isInteractable = false
 	
 	#
 	%ItemSnapLocation.object.isInteractable = true

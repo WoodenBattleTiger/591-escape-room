@@ -17,6 +17,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_chdgm"]
 size = Vector3(1, 0.8480835, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_screen"]
+size = Vector3(3.2072086, 4.51204, 3.2666683)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppu6q"]
 resource_name = "lambert1"
 cull_mode = 2
@@ -355,8 +358,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6e4bx")
 
-[node name="3dPrinter" type="StaticBody3D" groups=["3DPrinter"]]
-script = ExtResource("1_80j45")
+[node name="3dPrinter" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49158084, 0)
@@ -418,11 +420,18 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_7yssh")
 skeleton = NodePath("")
 
-[node name="Screen" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
+[node name="Screen" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group" groups=["3DPrinter"]]
+script = ExtResource("1_80j45")
 
 [node name="defaultMaterial6" type="MeshInstance3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Screen"]
 mesh = SubResource("ArrayMesh_xgj4l")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Screen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Screen/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9031333, 4.731698, 10.1415572)
+shape = SubResource("BoxShape3D_screen")
 
 [node name="pasted__polySurface6" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
 
