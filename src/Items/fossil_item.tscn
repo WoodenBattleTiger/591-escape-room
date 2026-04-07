@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dflbtfeqfigs0"]
+[gd_scene load_steps=14 format=4 uid="uid://dflbtfeqfigs0"]
 
 [ext_resource type="Script" uid="uid://b57dk4b820rgi" path="res://src/Items/fossil_item.gd" id="1_5lym3"]
 [ext_resource type="PackedScene" uid="uid://cbefnf5h3s60v" path="res://assets/particle/rock_particles.tscn" id="2_p8frd"]
@@ -10,12 +10,20 @@
 height = 0.97248745
 radius = 0.50341797
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hslg3"]
-albedo_color = Color(1, 0.2627451, 1, 1)
-metallic = 1.0
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_brlbk"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_hslg3"]
-material = SubResource("StandardMaterial3D_hslg3")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o7yjr"]
+noise = SubResource("FastNoiseLite_brlbk")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2g86"]
+metallic_specular = 0.35
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_o7yjr")
+
+[sub_resource type="SphereMesh" id="SphereMesh_brlbk"]
+material = SubResource("StandardMaterial3D_r2g86")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i375f"]
 resource_name = "default"
@@ -76,8 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011894822, 0)
 shape = SubResource("CylinderShape3D_5lym3")
 
 [node name="PlaceholderMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("BoxMesh_hslg3")
+mesh = SubResource("SphereMesh_brlbk")
 
 [node name="left_forearm" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3818577, 0.62836695, -0.1961571)

@@ -19,3 +19,4 @@ func interact():
 	#
 	%ItemSnapLocation.object.isInteractable = true
 	%ItemSnapLocation.object.currFossilState = FossilItem.FossilState.PRINTED
+	%ItemSnapLocation.object._update_state_visuals()

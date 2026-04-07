@@ -149,6 +149,7 @@ func assign_fossil(fossilScenePath: String) -> void:
 	fossilAssigned = load(fossilScenePath).instantiate()
 	add_child(fossilAssigned)
 	_cache_damage_materials()
+	_update_state_visuals()
 
 ## This function is called when the fossil is readied. 
 ## It collects all materials used in the fossil's visual representation and caches them in the _damage_materials array, along with their base colors
@@ -265,6 +266,17 @@ func _update_damage_visuals() -> void:
 		)
 
 
+func _update_state_visuals() -> void:
+	var is_jacketed = (currFossilState == FossilState.JACKETED)
+	$PlaceholderMesh.visible = is_jacketed
+	if fossilAssigned != null:
+		fossilAssigned.visible = not is_jacketed
+		var show_printed = (currFossilState == FossilState.PRINTED)
+		for mesh in _collect_mesh_instances(fossilAssigned):
+			if mesh.get_parent() is MeshInstance3D:
+				mesh.visible = show_printed
+
+
 func update_state_on_snap():
 	match currFossilState:
 		FossilItem.FossilState.JACKETED:
@@ -273,13 +285,15 @@ func update_state_on_snap():
 			#isInteractable = true
 			var table = get_tree().get_first_node_in_group("jacketing_table")
 			table.on_fossil_snapped(self)
-			
+			_update_state_visuals()
+
 		FossilItem.FossilState.UNJACKETED:
 			currFossilState = FossilItem.FossilState.INPRINTER
 			interactableText = "Press \"e\" to retrieve 3d printed fossil"
-			
+
 			var printer : Printer3D = get_tree().get_first_node_in_group("3DPrinter")
 			printer.isInteractable = true
+			_update_state_visuals()
 
 
 func interact():
@@ -295,6 +309,7 @@ func interact():
 			print("u dejacketed the fossil.")
 			interactableText = "Press \"e\" to pick up unjacketed fossil"
 			currFossilState = FossilState.UNJACKETED
+			_update_state_visuals()
 		
 		# Interacting with the fossil after player has unjacketed the fossil 
 		FossilState.UNJACKETED:
