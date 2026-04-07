@@ -144,6 +144,7 @@ mesh = SubResource("ArrayMesh_tnr26")
 skeleton = NodePath("")
 
 [node name="SnapParticles" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 40
 lifetime = 4.0
 explosiveness = 1.0

@@ -120,9 +120,11 @@ func minecraft_f1(on: bool) -> void:
 	if on:
 		#$Label3D.hide()
 		_player.get_node("%InteractText").hide()
+		_player.get_node("%Crosshair").hide()
 	else:
 		#$Label3D.show()
 		_player.get_node("%InteractText").show()
+		_player.get_node("%Crosshair").show()
 
 func _input(event: InputEvent) -> void:
 	if _inTableView and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
