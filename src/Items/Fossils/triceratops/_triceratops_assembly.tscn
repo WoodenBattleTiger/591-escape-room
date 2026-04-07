@@ -11,160 +11,160 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16, -0.478, 0.053)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_finger_1"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="Tri_Left_Finger_2_ItemSnapLocation3" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.254, -0.7, 0.3)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_finger_2"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="Tri_Left_Flank_ItemSnapLocation" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.386, -1.074)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_flank"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_foot_ItemSnapLocation2" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.5, -2.1)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_foot"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_forearm_ItemSnapLocation3" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.6, 0.2)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_forearm"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_hand_ItemSnapLocation4" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, -0.6, 0.2)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_forearm"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_hip_ItemSnapLocation5" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.4, -0.9)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_hip"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_horn_ItemSnapLocation6" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.7, 2.4)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_horn"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_lower_arm_ItemSnapLocation7" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.7, 0)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_lower_arm"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_shin_ItemSnapLocation8" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -1.5)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_shin"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_shoulder_ItemSnapLocation9" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.5, 0.5)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_shoulder"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_left_thigh_ItemSnapLocation10" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.6, -0.9)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_left_thigh"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_lower_jaw_ItemSnapLocation11" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -0.4, 1.9)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_lower_jaw"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_neck_bone_ItemSnapLocation12" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153, -0.013, 1.089)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_neck_bone"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_rib_ItemSnapLocation13" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009, 0.149, 0.3)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_rib"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_rib_2_ItemSnapLocation14" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109, 0.253, 0.064)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_rib_2"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_rib_3_ItemSnapLocation15" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_rib_3"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_flank_ItemSnapLocation16" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, -1.1)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_flank"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_foot_ItemSnapLocation17" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.4, -1.6)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_foot"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_forearm_ItemSnapLocation18" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.1)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_forearm"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_hand_ItemSnapLocation19" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, -0.7, -0.2)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_hand"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_hip_ItemSnapLocation20" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.4, -0.9)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_hip"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_lower_arm_ItemSnapLocation21" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.4, -0.2)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_lower_arm"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_shin_ItemSnapLocation22" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.2, -1.2)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_shin"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_shoulder_ItemSnapLocation23" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049, 0.28, 0.6)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_shoulder"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_right_thigh_ItemSnapLocation24" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.344, 0.298, -0.9)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_right_thigh"
-snap_time = 1.0
+snap_time = 0.65
 
 [node name="tri_skull_ItemSnapLocation25" parent="_main_body" instance=ExtResource("2_le2mo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.1, 1.8)
 fossilTypeAllowed = 4
 snapped_object_name = "tri_skull"
-snap_time = 1.0
+snap_time = 0.65

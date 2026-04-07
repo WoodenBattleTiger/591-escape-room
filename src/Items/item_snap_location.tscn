@@ -71,8 +71,8 @@ point_count = 2
 curve = SubResource("Curve_m2h55")
 
 [sub_resource type="Curve" id="Curve_crmwi"]
-_data = [Vector2(0, 1), 0.0, -3.5926945, 0, 0, Vector2(0.3380282, 0.27568734), -1.0018091, -1.0018091, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 142.41087, 0, 0, Vector2(0.045774654, 0.9811866), -5.0224023, -5.0224023, 0, 0, Vector2(0.30985916, 0.3979739), -1.0018091, -1.0018091, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_qaqfe"]
 curve = SubResource("Curve_crmwi")
@@ -83,9 +83,10 @@ emission_sphere_radius = 1.0
 angle_min = -204.4
 angle_max = 204.40001
 direction = Vector3(0, 1, 0)
-spread = 32.389
-initial_velocity_max = 7.7999997
-gravity = Vector3(0, -5, 0)
+spread = 76.815
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
 scale_curve = SubResource("CurveTexture_qaqfe")
 alpha_curve = SubResource("CurveTexture_6rgjo")
 
@@ -143,9 +144,8 @@ mesh = SubResource("ArrayMesh_tnr26")
 skeleton = NodePath("")
 
 [node name="SnapParticles" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 40
-one_shot = true
+lifetime = 4.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_6rgjo")
 draw_pass_1 = SubResource("QuadMesh_qaqfe")

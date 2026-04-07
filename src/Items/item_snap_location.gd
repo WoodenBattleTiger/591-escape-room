@@ -83,7 +83,12 @@ func snap_object():
 	var audio_manager = get_tree().root.get_node_or_null("Level/DungeonCrawlerAudioManager")
 	if audio_manager and audio_manager.has_method("play_sound_effect"):
 		print("playing sound effect")
-		audio_manager.play_sound_effect("snapToPosClick", 0.5, 0.5)
+		
+		if fossilTypeAllowed == FossilItem.FossilState.PRINTED: # basically checking if we are one of the final ones
+			audio_manager.play_sound_effect("snapToPosClick")
+		else:
+			print("the second sfx")
+			audio_manager.play_sound_effect("snapToPosClick2", 0.5, 0.5)
 	
 	# remove it from the player
 	object = player.is_holding
@@ -102,9 +107,10 @@ func snap_object():
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(object, "global_transform", global_transform, snap_time)
 	
-	# TODO play particles and a sound effect
-	tween.tween_callback(play_particles).set_delay(snap_time)
-	#tween.tween_callback(func(): hide()) # this is totally wrong!!!!
+
+	if fossilTypeAllowed == FossilItem.FossilState.PRINTED: # basically checking if we are one of the final ones
+		tween.tween_callback(play_particles).set_delay(snap_time)
+
 
 
 func play_particles():
