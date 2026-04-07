@@ -105,12 +105,12 @@ shadow_mesh = SubResource("ArrayMesh_wtecu")
 
 [node name="Tri_Rib_2" type="Node3D"]
 
-[node name="tri_rib2" type="MeshInstance3D" parent="."]
+[node name="tri_rib_2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10889254, -0.25335905, -0.06442747)
 mesh = SubResource("ArrayMesh_nvw2x")
 skeleton = NodePath("")
 
-[node name="rib2_001" type="MeshInstance3D" parent="tri_rib2"]
+[node name="rib2_001" type="MeshInstance3D" parent="tri_rib_2"]
 mesh = SubResource("ArrayMesh_3xrx5")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_rumxg")
