@@ -31,8 +31,8 @@ func getRandomFossil():
 	
 	#print(randf())
 	var num = randf()
-	#var triceratopsBoneSelected = num < 0.65
-	var triceratopsBoneSelected = true
+	var triceratopsBoneSelected = num < 0.65
+	#var triceratopsBoneSelected = true
 	print("HERE IS THE RESULT: " + str(triceratopsBoneSelected) + str(num))
 	
 	if !triceratopsBoneSelected && tyrannosaurIndex >= GlobalInfo.shuffled_tyrannosaur_scenes.size():
