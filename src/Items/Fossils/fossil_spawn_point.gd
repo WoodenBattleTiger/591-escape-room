@@ -31,7 +31,7 @@ func getRandomFossil():
 	
 	#print(randf())
 	var num = randf()
-	var triceratopsBoneSelected = num < 0.65
+	var triceratopsBoneSelected = num < 0.69
 	#var triceratopsBoneSelected = false
 	print("HERE IS THE RESULT: " + str(triceratopsBoneSelected) + str(num))
 	
