@@ -295,6 +295,13 @@ func update_state_on_snap():
 			printer.isInteractable = true
 			_update_state_visuals()
 
+		FossilItem.FossilState.PRINTED:
+			var spawn_point := get_tree().get_first_node_in_group("fossil_spawn_point")
+			if spawn_point != null and spawn_point.has_method("getRandomFossil"):
+				spawn_point.call_deferred("getRandomFossil")
+			else:
+				push_warning("No fossil spawn point found to spawn the next fossil.")
+
 
 func interact():
 	#push_warning("interact() called on base FossilItem — subclass should override this.")

@@ -90,10 +90,11 @@ func _physics_process(_delta: float) -> void:
 
 
 func _matches_object_name(fossil: FossilItem) -> bool:
-	if snapped_object_name == "":
-		return true
 	if fossil == null or fossil.fossilAssigned == null:
 		return false
+	if snapped_object_name.strip_edges() == "":
+		# Printed fossils must have an explicit target slot name.
+		return fossilTypeAllowed != FossilItem.FossilState.PRINTED
 	return snapped_object_name.to_lower() == fossil.fossilAssigned.name.to_lower()
 
 
