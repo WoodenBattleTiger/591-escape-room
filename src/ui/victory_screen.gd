@@ -5,6 +5,12 @@ extends Control
 @onready var starSet = $Background/StarSet
 
 func _ready() -> void:
+	# Find the audio manager
+	var audio_manager : DungeonCrawlerAudioManager = get_tree().root.get_node_or_null("Level/DungeonCrawlerAudioManager")
+	if audio_manager and audio_manager.has_method("play_sound_effect"):
+		print("playing sound effect")
+		audio_manager.play_sound_effect("starSparkle", 1.0, 0.7)
+			
 	# Start fully transparent
 	modulate.a = 0.0
 	
@@ -19,10 +25,16 @@ func _ready() -> void:
 
 	# Scale each star in sequence with 1 second gaps
 	var star_tween = create_tween()
+	if audio_manager and audio_manager.has_method("play_sound_effect"):
+		star_tween.tween_callback(func(): audio_manager.play_sound_effect("starSparkle", 1.0, 0.7))
 	star_tween.tween_property(stars[0], "scale", Vector2.ONE, 0.5)
 	star_tween.tween_interval(2.0)
+	if audio_manager and audio_manager.has_method("play_sound_effect"):
+		star_tween.tween_callback(func(): audio_manager.play_sound_effect("starSparkle", 1.2, 0.7))
 	star_tween.tween_property(stars[1], "scale", Vector2.ONE, 0.5)
 	star_tween.tween_interval(2.0)
+	if audio_manager and audio_manager.has_method("play_sound_effect"):
+		star_tween.tween_callback(func(): audio_manager.play_sound_effect("starSparkle", 1.4, 0.7))
 	star_tween.tween_property(stars[2], "scale", Vector2.ONE, 0.5)
 
 func _process(delta: float) -> void:
