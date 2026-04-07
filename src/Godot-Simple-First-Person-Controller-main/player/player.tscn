@@ -52,6 +52,7 @@ cull_mask = 1048571
 
 [node name="OrientationIndicator" type="MeshInstance3D" parent="HeadPosition/LandingAnimation/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.35)
+visible = false
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_oul6g")
 
