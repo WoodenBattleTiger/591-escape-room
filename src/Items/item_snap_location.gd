@@ -11,6 +11,8 @@ extends Node3D
 var tracked_held_item
 var player : Player
 
+var printNumber = 0
+
 ## magnitude of the sphere that marks the correct spot
 @export var position_closeness_threshold = 0.25
 
@@ -65,10 +67,12 @@ func _physics_process(_delta: float) -> void:
 		var angle_dist = rad_to_deg(rot_a.angle_to(rot_b))
 		var r_check =  angle_dist < rotation_closeness_threshold
 		
-		print("name: ", name)
-		print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
-		print(object.currFossilState, fossilTypeAllowed)
-		
+		if printNumber % 100 == 0:
+			print("name: ", name)
+			print("distance: ", dist, ": ", l_check, "   angle: ", angle_dist, ": ", r_check)
+			print(object.currFossilState, fossilTypeAllowed)
+		printNumber += 1
+
 		if l_check and r_check and object.currFossilState == fossilTypeAllowed:
 			snap_object()
  
@@ -76,9 +80,10 @@ func _physics_process(_delta: float) -> void:
 func snap_object():
 	print("snapping the object")
 	# Find the audio manager
-	var audio_manager = get_tree().root.get_node_or_null("Node3D/DungeonCrawlerAudioManager")
+	var audio_manager = get_tree().root.get_node_or_null("Level/DungeonCrawlerAudioManager")
 	if audio_manager and audio_manager.has_method("play_sound_effect"):
-		audio_manager.play_sound_effect("snapToPosClick")
+		print("playing sound effect")
+		audio_manager.play_sound_effect("snapToPosClick", 0.5, 0.5)
 	
 	# remove it from the player
 	object = player.is_holding
