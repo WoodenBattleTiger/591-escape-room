@@ -28,6 +28,9 @@ var player : Player
 #tracks the fossil being held
 var object : FossilItem
 
+
+@onready var snap_particles = $SnapParticles
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
@@ -48,7 +51,7 @@ func _physics_process(_delta: float) -> void:
 			return
 		
 		
-		if not (snapped_object_name == "" or snapped_object_name == object.fossilAssigned.name):
+		if not (snapped_object_name == "" or snapped_object_name.to_lower() == object.fossilAssigned.name.to_lower()):
 			# TODO TEST THIS later
 			return
 			
@@ -99,7 +102,7 @@ func snap_object():
 
 
 func play_particles():
-	$GPUParticles3D.one_shot = true
-	$GPUParticles3D.emitting = true
+	snap_particles.one_shot = true
+	snap_particles.emitting = true
 	
 	
