@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://c88i57jbpr1cu"]
+[gd_scene load_steps=36 format=4 uid="uid://c88i57jbpr1cu"]
 
 [ext_resource type="Script" uid="uid://ca4ja6ro14jv7" path="res://src/map/3d_printer.gd" id="1_80j45"]
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="2_jb2qv"]
@@ -16,9 +16,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_chdgm"]
 size = Vector3(1, 0.8480835, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_screen"]
-size = Vector3(3.2072086, 4.51204, 3.2666683)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppu6q"]
 resource_name = "lambert1"
@@ -246,6 +243,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uxhi2")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_screen"]
+size = Vector3(3.2072086, 4.51204, 3.2666683)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_3e28u"]
 _surfaces = [{
 "aabb": AABB(-4.959407, 3.001155, -9.580129, 10.380653, 0.9437542, 19.033676),
@@ -430,7 +430,7 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Screen"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group/Screen/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9031333, 4.731698, 10.1415572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.903133, 4.731698, 10.141557)
 shape = SubResource("BoxShape3D_screen")
 
 [node name="pasted__polySurface6" type="Node3D" parent="Sketchfab_Scene/Sketchfab_model/Collada visual scene group"]
