@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://e0sauuoas2s6"]
+[gd_scene load_steps=9 format=3 uid="uid://e0sauuoas2s6"]
 
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="1_2hgly"]
 [ext_resource type="Script" uid="uid://brk1ru8swqoak" path="res://src/map/unjacketing_table.gd" id="1_gj8lq"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://qph12y63hkk8" path="res://assets/lab/lab furniture/steel_table.glb" id="4_7t7o6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x300s"]
-size = Vector3(0.8, 1.2, 1.1)
+size = Vector3(0.8, 1.1002839, 0.9689453)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t7o6"]
+size = Vector3(0.8, 1.3263, 0.9689453)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fossil"]
 size = Vector2(0.8, 0.8)
@@ -24,11 +27,20 @@ transform = Transform3D(1.5, 0, 0, 0, 0.9, 0, 0, 0, 2, 0, 0.45, 0)
 transform = Transform3D(-0.35000002, 0, 2.7318796e-08, 0, 0.58100003, 0, -3.3527613e-08, 0, -0.259, -0.033333343, -0.50000006, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 0.100000024, -0.050000027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 0.19897008, 0.015527323)
 shape = SubResource("BoxShape3D_x300s")
 
 [node name="Camera3D" type="Camera3D" parent="StaticBody3D"]
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 2, 0)
+
+[node name="dummy" type="StaticBody3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 0.9, 0, 0, 0, 2, 0, 0.45, 0)
+collision_layer = 8388608
+collision_mask = 8388608
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dummy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 0.37341487, 0.015527323)
+shape = SubResource("BoxShape3D_7t7o6")
 
 [node name="ItemSnapLocation" parent="." instance=ExtResource("1_2hgly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6348506, 0)

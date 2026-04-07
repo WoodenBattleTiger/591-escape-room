@@ -269,8 +269,8 @@ func update_state_on_snap():
 	match currFossilState:
 		FossilItem.FossilState.JACKETED:
 			currFossilState = FossilItem.FossilState.ONTABLE
-			interactableText = "Press \"e\" to unjacket the fossil"
-			isInteractable = true
+			#interactableText = "Press \"e\" to unjacket the fossil"
+			#isInteractable = true
 			var table = get_tree().get_first_node_in_group("jacketing_table")
 			table.on_fossil_snapped(self)
 			
