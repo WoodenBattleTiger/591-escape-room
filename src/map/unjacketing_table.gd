@@ -118,10 +118,10 @@ func interact() -> void:
 
 func minecraft_f1(on: bool) -> void:
 	if on:
-		$Label3D.hide()
+		#$Label3D.hide()
 		_player.get_node("%InteractText").hide()
 	else:
-		$Label3D.show()
+		#$Label3D.show()
 		_player.get_node("%InteractText").show()
 
 func _input(event: InputEvent) -> void:

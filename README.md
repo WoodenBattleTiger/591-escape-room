@@ -18,3 +18,4 @@ External Assets:
 Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0
 http://creativecommons.org/licenses/by/4.0/
+- Clicking LEGO Brick.wav by PieTheAnimator45 -- https://freesound.org/s/610524/ -- License: Attribution 4.0

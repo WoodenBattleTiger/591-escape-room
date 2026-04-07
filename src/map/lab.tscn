@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bsyl1pwxukplj" path="res://src/map/environment_scenes/computer.tscn" id="23_ubrhc"]
 [ext_resource type="PackedScene" uid="uid://2uexb21uks8n" path="res://assets/lab/lab furniture/window_blinds.glb" id="24_38eqh"]
 [ext_resource type="PackedScene" uid="uid://hndj3m2helur" path="res://assets/lab/lab furniture/misc_brush_low_poly.glb" id="25_7rw3s"]
-[ext_resource type="PackedScene" uid="uid://3k1mycnbp5pi" path="res://src/map/environment_scenes/whiteboard.tscn" id="25_tx1p0"]
+[ext_resource type="PackedScene" path="res://src/map/environment_scenes/whiteboard.tscn" id="25_tx1p0"]
 [ext_resource type="Texture2D" uid="uid://d2jtdsbwvpuyn" path="res://assets/lab/textures/yay.png" id="26_l80hc"]
 [ext_resource type="PackedScene" uid="uid://cksw74kxkflb6" path="res://assets/lab/lab furniture/misc_magnifying_glass.glb" id="26_uhs0c"]
 [ext_resource type="PackedScene" uid="uid://dy3gnnxeucpj2" path="res://assets/lab/lab furniture/machine_electronic_scale.glb" id="27_uhs0c"]
@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://3c6sj6abqcmr" path="res://assets/lab/paper_Image_0.jpg" id="34_1enth"]
 [ext_resource type="Texture2D" uid="uid://cgwn5lcvwxv7a" path="res://assets/lab/paper_Image_1.png" id="35_tx1p0"]
 [ext_resource type="Texture2D" uid="uid://kvfpu30vo5oh" path="res://assets/lab/paper_Image_2.png" id="36_l80hc"]
-[ext_resource type="Script" path="res://src/dc_audio_manager.gd" id="37_tx1p0"]
+[ext_resource type="Script" uid="uid://bnupjo3x8pw85" path="res://src/dc_audio_manager.gd" id="37_tx1p0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fn6q"]
 albedo_color = Color(0.42088482, 0.42470554, 0.46283662, 1)

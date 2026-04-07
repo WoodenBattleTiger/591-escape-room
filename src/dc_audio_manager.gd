@@ -10,6 +10,7 @@ const rockSound3: AudioStream = preload("res://assets/audio/sfx/rocks-03.ogg")
 const rockSound4: AudioStream = preload("res://assets/audio/sfx/rocks-04.ogg")
 const rockSound5: AudioStream = preload("res://assets/audio/sfx/rocks-05.ogg")
 const rockSound6: AudioStream = preload("res://assets/audio/sfx/rocks-06.ogg")
+const snapToPosClick: AudioStreamWAV = preload("res://assets/audio/sfx/clicking.wav")
 
 # Defines a map between a string and a sound effect,
 # so that the main script can just call play_sound("sfx_name"),
@@ -20,7 +21,8 @@ var sound_effects_map = {
 	"rockSound3": rockSound3,
 	"rockSound4": rockSound4,
 	"rockSound5": rockSound5,
-	"rockSound6": rockSound6
+	"rockSound6": rockSound6,
+	"snapToPosClick": snapToPosClick
 }
 
 var background_music_map = {
