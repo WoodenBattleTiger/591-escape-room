@@ -14,7 +14,7 @@ func interact():
 	print("do something here")
 	
 	#printer can't be interacted with anymore
-	#isInteractable = false
+	isInteractable = false
 	
 	#
 	%ItemSnapLocation.object.isInteractable = true
