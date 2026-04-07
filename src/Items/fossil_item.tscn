@@ -11,6 +11,7 @@ height = 0.97248745
 radius = 0.50341797
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_brlbk"]
+frequency = 0.0227
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o7yjr"]
 noise = SubResource("FastNoiseLite_brlbk")
