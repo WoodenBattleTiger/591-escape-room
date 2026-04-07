@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://e0sauuoas2s6"]
+[gd_scene load_steps=7 format=3 uid="uid://e0sauuoas2s6"]
 
 [ext_resource type="PackedScene" uid="uid://yaiwwoegko4q" path="res://src/Items/item_snap_location.tscn" id="1_2hgly"]
 [ext_resource type="Script" uid="uid://brk1ru8swqoak" path="res://src/map/unjacketing_table.gd" id="1_gj8lq"]
-[ext_resource type="Texture2D" uid="uid://b8b387uhy8iel" path="res://assets/jacket/fossil_placeholder.png" id="2_x300s"]
-[ext_resource type="Texture2D" uid="uid://sim2b82pa2op" path="res://assets/jacket/fossil_placeholder_mask.png" id="3_7t7o6"]
 [ext_resource type="PackedScene" uid="uid://qph12y63hkk8" path="res://assets/lab/lab furniture/steel_table.glb" id="4_7t7o6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x300s"]
@@ -17,8 +15,6 @@ size = Vector2(0.8, 0.8)
 
 [node name="JacketingTable" type="Node3D" groups=["jacketing_table"]]
 script = ExtResource("1_gj8lq")
-fossil_texture = ExtResource("2_x300s")
-erase_mask_texture = ExtResource("3_7t7o6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 0.9, 0, 0, 0, 2, 0, 0.45, 0)
@@ -53,10 +49,26 @@ mesh = SubResource("PlaneMesh_fossil")
 [node name="MinigameViewport" type="SubViewport" parent="."]
 render_target_update_mode = 4
 
+[node name="GrayBackground" type="ColorRect" parent="MinigameViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45, 0.45, 0.45, 1)
+
 [node name="FossilImage" type="TextureRect" parent="MinigameViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch_mode = 1
+stretch_mode = 0
+
+[node name="BoneReveal" type="TextureRect" parent="MinigameViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 0

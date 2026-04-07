@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://e0sauuoas2s6" path="res://src/map/unjacketing_table.tscn" id="5_v7hv7"]
 [ext_resource type="PackedScene" uid="uid://bos3euuw1dkoo" path="res://src/Items/Fossils/triceratops/_triceratops_assembly.tscn" id="6_bs65j"]
 [ext_resource type="PackedScene" uid="uid://tjopfesi0081" path="res://src/map/environment_scenes/shelf.tscn" id="8_efamr"]
-[ext_resource type="PackedScene" uid="uid://blvb5ej77266x" path="res://src/Items/Fossils/tyrannosaur/_tyrannosaur_assembly.tscn" id="8_srl07"]
+[ext_resource type="PackedScene" path="res://src/Items/Fossils/tyrannosaur/_tyrannosaur_assembly.tscn" id="8_srl07"]
 [ext_resource type="PackedScene" uid="uid://3lftbtkju4w2" path="res://src/map/environment_scenes/counter_1.tscn" id="9_v7hv7"]
 [ext_resource type="PackedScene" uid="uid://dcxdbmrcvn1wt" path="res://src/map/environment_scenes/counter_2.tscn" id="10_5hhjr"]
 [ext_resource type="Material" uid="uid://oilguafba6rb" path="res://src/map/environment_scenes/wall_mat.tres" id="10_s7pdw"]
