@@ -1,10 +1,12 @@
 class_name FossilSpawnPoint
 extends Node
 
-var triceratopsIndex = 0
-var tyrannosaurIndex = 0
+var triceratopsIndex = 27
+var tyrannosaurIndex = 15
 
 var fossil_item_scene = preload("res://src/Items/fossil_item.tscn")
+
+@onready var victory_screen_instance = preload("res://src/ui/victory_screen.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +21,8 @@ func getRandomFossil():
 	#end game because all tyrannosaur and triceratops fossils have been cycled through
 	if triceratopsIndex >= GlobalInfo.shuffled_triceratops_scenes.size() && tyrannosaurIndex >= GlobalInfo.shuffled_tyrannosaur_scenes.size():
 		#TODO DO SOMETHING HERE
+		var victory_screen = victory_screen_instance.instantiate()
+		get_tree().root.add_child(victory_screen)
 		print("You got all fossils. Trigger something now")
 		return
 	
