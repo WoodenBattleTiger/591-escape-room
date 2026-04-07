@@ -145,11 +145,12 @@ skeleton = NodePath("")
 [node name="SnapParticles" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 40
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_6rgjo")
 draw_pass_1 = SubResource("QuadMesh_qaqfe")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+[node name="HelperParticles" type="GPUParticles3D" parent="."]
 visible = false
 amount = 20
 lifetime = 2.0

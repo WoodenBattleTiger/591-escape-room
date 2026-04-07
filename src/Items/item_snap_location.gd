@@ -93,15 +93,18 @@ func snap_object():
 	object.update_state_on_snap()
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(object, "global_transform", global_transform, snap_time)
+	tween.set_parallel()
 	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(object, "global_transform", global_transform, snap_time)
 	
 	# TODO play particles and a sound effect
-	tween.tween_callback(self.play_particles)
-	tween.tween_callback(func(): hide())
+	tween.tween_callback(play_particles).set_delay(snap_time)
+	#tween.tween_callback(func(): hide()) # this is totally wrong!!!!
 
 
 func play_particles():
+	print("particles GO!")
+	# but they aren't actually happening?
 	snap_particles.one_shot = true
 	snap_particles.emitting = true
 	
