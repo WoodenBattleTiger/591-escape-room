@@ -1,8 +1,8 @@
 class_name FossilSpawnPoint
 extends Node
 
-var triceratopsIndex = 27
-var tyrannosaurIndex = 15
+var triceratopsIndex = 0
+var tyrannosaurIndex = 0
 
 var fossil_item_scene = preload("res://src/Items/fossil_item.tscn")
 
@@ -23,7 +23,7 @@ func getRandomFossil():
 		#TODO DO SOMETHING HERE
 		var victory_screen = victory_screen_instance.instantiate()
 		get_tree().root.add_child(victory_screen)
-		print("You got all fossils. Trigger something now")
+		#print("You got all fossils. Trigger something now")
 		return
 	
 	#spawn fossilItem
